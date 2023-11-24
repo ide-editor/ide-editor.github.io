@@ -3617,6 +3617,7 @@ var GGWidth = window.innerHeight||window.outerHeight;
       var editor = CodeMirror(document.getElementById('editor'),{
           mode: "text/html",
           theme:"IDE",
+	  value: '<html>\n    <head>\n      <title>Page title</title>\n      <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">\n      <style>\n        /* CSS stylesheet */\n      </style>\n      <script>\n        // JS script\n      </script>\n    </head>\n    <body>\n      <!-- some codes for the body -->\n    </body>\n  </html>',
           lineNumbers: false,
           matchBrackets: true,
           styleActiveLine: true,
