@@ -3585,7 +3585,7 @@ var GGWidth = window.innerHeight||window.outerHeight;
   <table id="Recent_Loader">
     <tr><td><select id="Recent" onchange="SelectRecent()"></select></td><td><button onclick="AddRecent()" class="add_Recent">ADD</button></td></tr>
   </table>
-  <textarea id="editor" onclick="editorOnclick()"><!doctype html>
+  <div id="editor" onclick="editorOnclick()"><!doctype html>
   <html>
     <head>
       <title>Page title</title>
@@ -3600,7 +3600,7 @@ var GGWidth = window.innerHeight||window.outerHeight;
     <body>
       <!-- some codes for the body -->
     </body>
-  </html></textarea><br>
+  </html></div><br>
  <div class="topnav2">
    <nav class="imgs_loader">
     <img src="icons/Share.png" onclick="ShareLink(),toLeft(),toRight()" width="40" height="40" class="Share_btn">
@@ -3614,7 +3614,7 @@ var GGWidth = window.innerHeight||window.outerHeight;
     <p id="Project_Size"></p>
 </div>
   <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById('editor'),{
+      var editor = CodeMirror(document.getElementById('editor'),{
           mode: "text/html",
           theme:"IDE",
           lineNumbers: false,
