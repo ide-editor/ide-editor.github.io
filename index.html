@@ -3614,10 +3614,11 @@ var GGWidth = window.innerHeight||window.outerHeight;
     <p id="Project_Size"></p>
 </div>
   <script>
+      var my_source_code_for_editor = "PCFkb2N0eXBlIGh0bWw+CiAgPGh0bWw+CiAgICA8aGVhZD4KICAgICAgPHRpdGxlPlBhZ2UgdGl0bGU8L3RpdGxlPgogICAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCIgY2hhcnNldD0iVVRGLTgiPgogICAgICA8c3R5bGU+CiAgICAgICAgLyogQ1NTIHN0eWxlc2hlZXQgKi8KICAgICAgPC9zdHlsZT4KICAgICAgPHNjcmlwdD4KICAgICAgICAvLyBKUyBzY3JpcHQKICAgICAgPC9zY3JpcHQ+CiAgICA8L2hlYWQ+CiAgICA8Ym9keT4KICAgICAgPCEtLSBzb21lIGNvZGVzIGZvciB0aGUgYm9keSAtLT4KICAgIDwvYm9keT4KICA8L2h0bWw+";
       var editor = CodeMirror(document.getElementById('editor'),{
           mode: "text/html",
           theme:"IDE",
-	  value: '<html>\n    <head>\n      <title>Page title</title>\n      <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">\n      <style>\n        /* CSS stylesheet */\n      </style>\n      <script>\n        // JS script\n      </script>\n    </head>\n    <body>\n      <!-- some codes for the body -->\n    </body>\n  </html>',
+	  value: atob(my_source_code_for_editor),
           lineNumbers: false,
           matchBrackets: true,
           styleActiveLine: true,
