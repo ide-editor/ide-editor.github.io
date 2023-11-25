@@ -3575,6 +3575,22 @@ var GGWidth = window.innerHeight||window.outerHeight;
     alert("Total Size:"+document.getElementById('Project_Size').innerHTML+"\n\nHTML: "+'60%'+'\n\nCSS: '+'30%'+'\n\n'+'JavaScript: '+ '10%');
   }
 </script>
+<script>
+setTimeout(function(){
+
+var xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function() {
+ if (xhr.readyState == 4 && xhr.status == 200) {
+    // console.log(xhr.responseText);
+ }
+};
+
+xhr.open("GET", "https://api.example.com/data", true);
+xhr.setRequestHeader("Access-Control-Allow-Origin", "ide-editor.github.com");
+xhr.send();
+},1);
+</script>
 <style id="thatwidth"></style>
 </head>
 <body>
