@@ -2835,7 +2835,7 @@ function ShareLink(){
   viewSave();
   document.getElementById("textToConvertIt").value= encodeURI(editor.getValue());
   toBase64();
-  document.getElementById("filename").value="https://ide-editor.com?mode=" + editor.getOption("mode") + '&lineNumbers=' + editor.getOption("lineNumbers") + "&matchBrackets=" + editor.getOption("matchBrackets") + '&readOnly=' + editor.getOption("readOnly").replace("","false") + "&theme=" + editor.getOption("theme") + "&SourceCode=" + document.getElementById("ConvertedText").value;
+  document.getElementById("filename").value="https://ide-editor.github.io?mode=" + editor.getOption("mode") + '&lineNumbers=' + editor.getOption("lineNumbers") + "&matchBrackets=" + editor.getOption("matchBrackets") + '&readOnly=' + editor.getOption("readOnly").replace("","false") + "&theme=" + editor.getOption("theme") + "&SourceCode=" + document.getElementById("ConvertedText").value;
   Dada();
   document.getElementsByClassName("Save-file-button")[0].innerHTML="Copy URL";
    document.getElementById("filename-input").style.height="160px";
@@ -3676,7 +3676,7 @@ function CreateQRCode(){
       });
 function GenetateLink(){
   
-  document.getElementById("filename").value="https://ide-editor.com?mode=" + editor.getOption("mode") + '&lineNumbers=' + editor.getOption("lineNumbers") + "&matchBrackets=" + editor.getOption("matchBrackets") + '&readOnly=' + editor.getOption("readOnly").replace("","false") + "&theme=" + editor.getOption("theme") + "&SourceCode=" + document.getElementById("history_text").value;
+  document.getElementById("filename").value="https://ide-editor.github.io?mode=" + editor.getOption("mode") + '&lineNumbers=' + editor.getOption("lineNumbers") + "&matchBrackets=" + editor.getOption("matchBrackets") + '&readOnly=' + editor.getOption("readOnly").replace("","false") + "&theme=" + editor.getOption("theme") + "&SourceCode=" + document.getElementById("history_text").value;
 }
 function updatePreview() {
 
@@ -4998,24 +4998,24 @@ function SaveDecodedURL() {
   </ol>
   <h4 class="chapter">IDE API</h4>
  that website is have advanced application programming interface (API) you can use the API to customize the website using the url link and the search params and it the existing params inside the url link like that link:-<br><br>
-    https://ide-editor.com?<span class="info-tag">mode=application/json</span><br><br>
+    https://ide-editor.github.io?<span class="info-tag">mode=application/json</span><br><br>
 use the <span class="info-tag">mode</span> param for tell the editor any mode we need to use it you write the mode as a MIME type of the language for example i want to use the JavaScript language in the editor so i will write in the url:-<br><br>
-https://ide-editor.com?mode=application/json<span class="info-tag">&lineNumbers=true</span><br><br>
+https://ide-editor.github.io?mode=application/json<span class="info-tag">&lineNumbers=true</span><br><br>
 use the <span class="info-tag">lineNumbers</span> param for tell the editor if we want to see the linenumbers or no't <br><br>
 <div>
-  https://ide-editor.com?mode=application/json&<br>lineNumbers=true&<span class="info-tag">matchBrackets=true</span>
+  https://ide-editor.github.io?mode=application/json&<br>lineNumbers=true&<span class="info-tag">matchBrackets=true</span>
 </div>
 <div>
   <br>use the <span class="info-tag">matchBrackets</span> param for tell the editor if we want to active the matchBrackets or no't <br>
 </div>
-<br>https://ide-editor.com?mode=application/json&lineNumbers=true<br>&matchBrackets=true<span class="info-tag">&readOnly=true</span><br><br>
+<br>https://ide-editor.github.io?mode=application/json&lineNumbers=true<br>&matchBrackets=true<span class="info-tag">&readOnly=true</span><br><br>
 use the <span class="info-tag">readOnly</span> param for make the text dosen't changing into the editor and this attribute for protect the codes<br><br>
-https://ide-editor.com?mode=application/json&lineNumbers=true<br>&matchBrackets=true&readOnly=true<span class="info-tag">&theme=IDE</span>
+https://ide-editor.github.io?mode=application/json&lineNumbers=true<br>&matchBrackets=true&readOnly=true<span class="info-tag">&theme=IDE</span>
 <div>
   <br>use the <span class="info-tag">theme</span> param for set theme of the editor<br><br>
 </div>
 <div>
-  https://ide-editor.com?mode=application/json&lineNumbers=true<br>&matchBrackets=true&readOnly=true&theme=IDE<br>&<span class="info-tag">SourceCode=Base64 String</span><br>
+  https://ide-editor.github.io?mode=application/json&lineNumbers=true<br>&matchBrackets=true&readOnly=true&theme=IDE<br>&<span class="info-tag">SourceCode=Base64 String</span><br>
     <br>use the <span class="info-tag">SourceCode</span> param for set the existing source code into the editor using Base64 String<br>
     and for do this you have to convert the text to URL Encoding using the <span class="JS_Code">encodeURI(<span class="slash_text">String</span>)</span> and then convert this result to Base64 String and for do this you can use btoa(<span class="slash_text">String</span>)<br>
 </div>
