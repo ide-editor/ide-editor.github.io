@@ -6,7 +6,7 @@
 <meta name="keywords" content="Welcome to IDE editor the Best Place for the WEB Developmenter's,IDE,IDE Code Editor,IDE Editor,IDE Editor,Online Code Editor, Code Editor, online IDE, WEB IDE, the Best Place for the WEB Developmenter's, Best Code Editor">
 <meta name="author" content="Zezo Foad">
 <link rel="stylesheet" href="codecolor/theme/IDE.css">
-<link rel="icon" href="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/PicsArt_09-27-12.34.12.jpg">
+<link rel="icon" href="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/PicsArt_09-27-12.34.12.jpg">
 <link rel="stylesheet" href="colorpicker/addon/codemirror-colorpicker.css" />
 <link rel="stylesheet" href="codecolor/doc/docs.css">
 <link rel="stylesheet" href="codecolor/lib/codemirror.css">
@@ -2608,7 +2608,7 @@ function loadsource(src) {
     var Selected_widtdh = Selected_width - 60;
     var Selected_widtdX = Selected_width - 300;
     var Selected_widthX = Selected_width - 140;
-    document.getElementById("notes").innerHTML+='<br><pre theme="'+editor.getOption("theme")+'" id="note" style="margin-top:-55px;margin-right:-20px;width:'+Selected_widtXh+'px;" data-lang="' + editor.getOption("mode") + '">' + document.getElementById("text-editor").value.replaceAll("<","&lt;") + '\n\n\n</pre><img style="margin-top:-54px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-54px;margin-bottom:45px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</p><p><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Copy_white.png" onclick="CopyNoteText(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:22px;height:22px;margin-top:-68px;margin-left:'+Selected_widtdh+'px;"></p><p style="margin-top:-9px;margin-left:90px;"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/open-with.png" onclick="ReadNote(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:60px;height:110px;margin-top:-119px;margin-left:'+Selected_widthX+'px;"></p></div>';
+    document.getElementById("notes").innerHTML+='<br><pre theme="'+editor.getOption("theme")+'" id="note" style="margin-top:-55px;margin-right:-20px;width:'+Selected_widtXh+'px;" data-lang="' + editor.getOption("mode") + '">' + document.getElementById("text-editor").value.replaceAll("<","&lt;") + '\n\n\n</pre><img style="margin-top:-54px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-54px;margin-bottom:45px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</p><p><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Copy_white.png" onclick="CopyNoteText(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:22px;height:22px;margin-top:-68px;margin-left:'+Selected_widtdh+'px;"></p><p style="margin-top:-9px;margin-left:90px;"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/open-with.png" onclick="ReadNote(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:60px;height:110px;margin-top:-119px;margin-left:'+Selected_widthX+'px;"></p></div>';
   	CodeMirror.colorize();
   	document.getElementById("text-editor").value="";
   	var nodes = document.querySelectorAll("#note");
@@ -2711,7 +2711,7 @@ function ClickX34() {
 }
 function RunBtnOnclick() {
 	
- document.getElementById('Runtxt').innerHTML='<img onclick="' + document.getElementById('RunMode').value + '"' + 'src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/gRun.png" id="grun">';
+ document.getElementById('Runtxt').innerHTML='<img onclick="' + document.getElementById('RunMode').value + '"' + 'src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/gRun.png" id="grun">';
  document.getElementById('grun').style.display='block';
  document.getElementById('find').style.marginTop="-30px";
  document.getElementById('Runtxt').style.marginTop="-55px";
@@ -3603,13 +3603,13 @@ var GGWidth = window.innerHeight||window.outerHeight;
   </html></textarea><br>
  <div class="topnav2">
    <nav class="imgs_loader">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Share.png" onclick="ShareLink(),toLeft(),toRight()" width="40" height="40" class="Share_btn">
-   <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/undo.png" id="undo" onclick="undo()" width="40" height="40" class="class1">
-   <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/redo.png" id="redo" onclick="redo()" width="40" height="40" class="class2">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/add_note.png" onclick="addNote()" width="40" height="40" class="class5" id="addNote">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/QR_Code.png" onclick="ShareCode()" width="40" height="40" class="class5" id="QR_Code_btn">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/mylock.png" width="40" height="40" class="class5" onclick="SpeedLock()">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/missions-icon-smallmark.png" width="40" height="40" class="class5" onclick="GetReport()">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Share.png" onclick="ShareLink(),toLeft(),toRight()" width="40" height="40" class="Share_btn">
+   <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/undo.png" id="undo" onclick="undo()" width="40" height="40" class="class1">
+   <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/redo.png" id="redo" onclick="redo()" width="40" height="40" class="class2">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/add_note.png" onclick="addNote()" width="40" height="40" class="class5" id="addNote">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/QR_Code.png" onclick="ShareCode()" width="40" height="40" class="class5" id="QR_Code_btn">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/mylock.png" width="40" height="40" class="class5" onclick="SpeedLock()">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/missions-icon-smallmark.png" width="40" height="40" class="class5" onclick="GetReport()">
     </nav>
     <p id="Project_Size"></p>
 </div>
@@ -3712,17 +3712,17 @@ document.getElementById("history_text").value= encodeURI(editor.getValue());
 <div id="id01" class="IDE-modal">
     <div class="IDE-modal-content">
       <div class="IDE-container">
-<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GProject.png" id="LoadFile" class="GProject" onclick="Load(),Click3()">
-<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/home_toolbar_download_animation_arrow_icon.png" class="class6" id="dlbtn" onclick="Click4(),viewSave()">
-<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/browser.png" class="style1" onclick="ClickZ83()">
-<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Command Line.png" class="style1" onclick="openCommandLine()">
-<img onclick="ClickX34()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ColorsPicker.png" class="style2">
-<img onclick="ClickV83()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ASCII.png" class="style3">
-<img onclick="myXonclick()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/icon-partlock.png" class="style3">
-<img onclick="myfunonclick()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" class="style5">
-<img onclick="my123Click()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Files.png" class="zclass">
-<img onclick="my456Click()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GSettings.png" class="GSettingsBtn">
-<img onclick="about()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/about.png" class="aboutbtn">
+<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GProject.png" id="LoadFile" class="GProject" onclick="Load(),Click3()">
+<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/home_toolbar_download_animation_arrow_icon.png" class="class6" id="dlbtn" onclick="Click4(),viewSave()">
+<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/browser.png" class="style1" onclick="ClickZ83()">
+<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Command Line.png" class="style1" onclick="openCommandLine()">
+<img onclick="ClickX34()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ColorsPicker.png" class="style2">
+<img onclick="ClickV83()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ASCII.png" class="style3">
+<img onclick="myXonclick()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/icon-partlock.png" class="style3">
+<img onclick="myfunonclick()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" class="style5">
+<img onclick="my123Click()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Files.png" class="zclass">
+<img onclick="my456Click()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GSettings.png" class="GSettingsBtn">
+<img onclick="about()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/about.png" class="aboutbtn">
       </div>
     </div>
   </div>
@@ -3828,8 +3828,8 @@ document.getElementById("history_text").value= encodeURI(editor.getValue());
   }
 </script>
  <nav class="IDE-topnav"></nav>
-<p class="undotxt"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/undo.png" width="40" height="40" onclick="updatePreview()"></p>
-<p class="undotxt" style="margin-left:50px;margin-top:-55px;position:fixed;"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Tools.png" class="Console-btn" width="40" height="40" onclick="OpenConsole(this)"></p>
+<p class="undotxt"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/undo.png" width="40" height="40" onclick="updatePreview()"></p>
+<p class="undotxt" style="margin-left:50px;margin-top:-55px;position:fixed;"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Tools.png" class="Console-btn" width="40" height="40" onclick="OpenConsole(this)"></p>
 <p onclick="close54321(),editorOnclick()" class="mclassm92">&times;</p>
 <div style="position: fixed;margin-top:-123px;margin-left:94px;" class="preview_url_loader"><input oninput="LoadParams(this.value)" type="url" id="preview_url" placeholder="URL..." style="width:65%;"></div>
 <iframe class="IDE_PREVIEW_IFRAME" id="preview"></iframe>
@@ -3863,7 +3863,7 @@ document.getElementById("Command").value="";
   }
   document.getElementById("preview").contentWindow.console.log = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader">' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader">' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
   document.getElementById("preview").contentWindow.console.clear = function (Clear){
     
@@ -3872,11 +3872,11 @@ document.getElementById("Command").value="";
   };
   document.getElementById("preview").contentWindow.console.error = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
   document.getElementById("preview").contentWindow.console.warn = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
 </script>
      </div>
@@ -3907,7 +3907,7 @@ document.getElementById("Command").value="";
   }
 </style>
  <nav class="topnav" id="loadfiletopnav"></nav>
-<p class="hekaya"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/add_plus.png" width="40" height="40" onclick="AddFileClick()"></p>
+<p class="hekaya"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/add_plus.png" width="40" height="40" onclick="AddFileClick()"></p>
 <p class="P011556"><input type="url" id="file-url" placeholder="https://" onclick="CloseVS()" oninput="loadFileFromURL(this.value)" autocomplete="off"></p>
 <p onclick="CloseCFile(),editorOnclick()" class="CloseFFd">&times;</p>
        <iframe id="file-from-url"></iframe>
@@ -3968,13 +3968,13 @@ var form = document.getElementById("command_form");
    <nav class="nav2">
      <input type="url" id="url" placeholder="https://" onclick="CloseVS()" oninput="loadURL()" autocomplete="off">
 <p class="OpenVS2" onclick="CloseVS(),CloseWindow(),editorOnclick()">&times;</p>
-<p class="P000"><img onclick="OpenVS()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/tools.png" width="30" height="30"></p>
+<p class="P000"><img onclick="OpenVS()" src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/tools.png" width="30" height="30"></p>
    </nav>
 </nav>
 <div id="viewsource-continer">
   <div id="viewsource-editor"></div>
   <div class="open-with-white-bg">
-  <nav class="window-topnav"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/open-with.png" onclick="openwitheditor(),CloseWindow()" width="100" height="150" class="IDE-MY-CLASS-FOR-CLOSE"></nav>
+  <nav class="window-topnav"><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/open-with.png" onclick="openwitheditor(),CloseWindow()" width="100" height="150" class="IDE-MY-CLASS-FOR-CLOSE"></nav>
   </div>
   <script>
     var neweditor = CodeMirror(document.getElementById('viewsource-editor'),{
@@ -3998,7 +3998,7 @@ var form = document.getElementById("command_form");
     <div class="Run-modal-content">
       <div class="Run-container">
     <nav class="MyXtopnav">
-      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GSettings.png" class="mygsettings" width="40" height="40">
+      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GSettings.png" class="mygsettings" width="40" height="40">
 </nav>
 <p class="CloseClose" id="CloseGSettings" onclick="CloseSettings(),editorOnclick()">&times;</p>
 <div class="xyzloader" style="height:200px;position:fixed;"><br>
@@ -4314,7 +4314,7 @@ var form = document.getElementById("command_form");
 </div>
 <div id="id11" class="Run mydiv099">
 <div id="topnav55">
-  <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/fclose.png" onclick="CloseColorPicker(),editorOnclick()" width="150" height="170" class="CloseColorPicker">
+  <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/fclose.png" onclick="CloseColorPicker(),editorOnclick()" width="150" height="170" class="CloseColorPicker">
 </div>
 <div id="macos"><div class="colorpicker-style" data-type="macos"></div></div>
 <div id="default"><div class="colorpicker-style" data-type="default"></div></div>
@@ -4596,7 +4596,7 @@ function destroyClickedElement(event) {
     </optgroup>
   </select>
 </p>
-<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/fclose.png" onclick="CloseB64()" width="150" class="fcloseb64" height="170" style="margin-top:-124px;margin-left:290px;margin-bottom:-100px;position:fixed;">
+<img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/fclose.png" onclick="CloseB64()" width="150" class="fcloseb64" height="170" style="margin-top:-124px;margin-left:290px;margin-bottom:-100px;position:fixed;">
 <div id="mode-1">
  <textarea class="textareaCode" id="Base64textArea" onclick="CopyText(this)" placeholder="Base64 String...." readonly></textarea>
 </div>
@@ -4915,8 +4915,8 @@ function SaveDecodedURL() {
     <div class="Run-modal-content">
       <div class="Run-container">
     <nav id="Notepade-topnav">
-      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" class="Note-icon" width="40" height="40">
-      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/add.png" class="AddNoteBtn" width="40" height="40" onclick="NewNote()">
+      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" class="Note-icon" width="40" height="40">
+      <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/add.png" class="AddNoteBtn" width="40" height="40" onclick="NewNote()">
       <p id="notes_number">0</p>
 </nav>
 <p class="CloseNote" onclick="CloseNote()">&times;</p>
@@ -4944,7 +4944,7 @@ function SaveDecodedURL() {
     <div class="Run-modal-content about-content">
       <div class="Run-container">
     <nav id="about-topnav">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/about.png" width="40" height="40" class="about-img">
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/about.png" width="40" height="40" class="about-img">
     <p class="CloseAbout" onclick="CloseAbout()">&times;</p>
 </nav>
 </div>
@@ -4955,27 +4955,27 @@ function SaveDecodedURL() {
  <h4 class="chapter">What i Can Do in IDE ? And What i Have ??</h4>
   <ol class="Cans">
     <li>writing and view The Codes.</li>
-    <li><span><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/omenu.png" width="10" height="10"></span><span> to open the menu and in This menu You Have some options (<span>Open File <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GProject.png" width="10" height="10"></span> , <span>Save File <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/home_toolbar_download_animation_arrow_icon.png" width="10" height="10"></span></span> , <span>Browser <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Browser.png" width="10" height="10"></span> , <span>
-      Command Line <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Command Line.png" width="10" height="10"></span>
-    , <span>Colors Picker <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ColorsPicker.png" width="10" height="10"></span> , <span>IMAGE to ASCII art <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ASCII.png" width="10" height="10"> , </span><span> File to Base64 <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/icon-partlock.png" width="12" height="12"></span> , <span> Notepade <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" width="12" height="12"></span> , <span> Media Player <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Files.png" width="12" height="12"></span> , <span> Settings <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GSettings.png" width="12" height="12"></span> , <span> about <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/about.png" width="12" height="12"></span>)</li>
-    <li>Open<span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GProject.png" width="10" height="10"></span>/Save <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/home_toolbar_download_animation_arrow_icon.png" width="10" height="10"></span> HTML Files From Your Device.</li>
-    <li>Save the source code to the Notepade to keep it for other time <span class="Pathe">options > </span> <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/add_note.png" width="10" height="10"></span> </li>
-    <li>Share Your Project using a qr Code <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/QR_Code.png" width="10" height="10"></span></span></li>
-    <li>Speed Protection for the Codes from the children's if you leaved the device for some time<span class="Pathe"> options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/mylock.png" width="10" height="10"></span></span></li>
-    <li>undo the last change <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/undo.png" width="10" height="10"></span></span></li>
-    <li>redo the last change <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/redo.png" width="10" height="10"></span></span></li>
+    <li><span><img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/omenu.png" width="10" height="10"></span><span> to open the menu and in This menu You Have some options (<span>Open File <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GProject.png" width="10" height="10"></span> , <span>Save File <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/home_toolbar_download_animation_arrow_icon.png" width="10" height="10"></span></span> , <span>Browser <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Browser.png" width="10" height="10"></span> , <span>
+      Command Line <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Command Line.png" width="10" height="10"></span>
+    , <span>Colors Picker <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ColorsPicker.png" width="10" height="10"></span> , <span>IMAGE to ASCII art <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ASCII.png" width="10" height="10"> , </span><span> File to Base64 <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/icon-partlock.png" width="12" height="12"></span> , <span> Notepade <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" width="12" height="12"></span> , <span> Media Player <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Files.png" width="12" height="12"></span> , <span> Settings <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GSettings.png" width="12" height="12"></span> , <span> about <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/about.png" width="12" height="12"></span>)</li>
+    <li>Open<span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GProject.png" width="10" height="10"></span>/Save <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/home_toolbar_download_animation_arrow_icon.png" width="10" height="10"></span> HTML Files From Your Device.</li>
+    <li>Save the source code to the Notepade to keep it for other time <span class="Pathe">options > </span> <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/add_note.png" width="10" height="10"></span> </li>
+    <li>Share Your Project using a qr Code <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/QR_Code.png" width="10" height="10"></span></span></li>
+    <li>Speed Protection for the Codes from the children's if you leaved the device for some time<span class="Pathe"> options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/mylock.png" width="10" height="10"></span></span></li>
+    <li>undo the last change <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/undo.png" width="10" height="10"></span></span></li>
+    <li>redo the last change <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/redo.png" width="10" height="10"></span></span></li>
     <p class="disabled NOTICE">if you cleaned the cookies from the settings or deleted data's of the browser you will lost your project so be careful when you delete the cookies</p>
-    <li>Share the source code with a Generated url link you can send that url to your Friends and them can open that url in the Browser and load your project using the url link without need to stoarge it on your device , ok i know is not a active way to share your project but is active way to share the little Projects <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Share.png" width="10" height="10"></span></span></li>
+    <li>Share the source code with a Generated url link you can send that url to your Friends and them can open that url in the Browser and load your project using the url link without need to stoarge it on your device , ok i know is not a active way to share your project but is active way to share the little Projects <span class="Pathe">options > <span> <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Share.png" width="10" height="10"></span></span></li>
     <li>Change a Font Size and You Have From 0 For 100 as max.</li>
-    <li>Open and view HTML Files and add it as new window or add movie or Run a music in the background <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/files.png" width="10" height="10"></span></li>
-    <li>You Have Awesome Notepade with Syntax Colors This Notepade is Not Just Normally Notepad This Notepad Can Colorize a Program Codes and Explore The Syntax Errors <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" width="10" height="10"></span></li>
-    <li>You Have advanced command line interface this interface is make you can give the commands to the editor and the existing codes inside the editor this command line can customize the editor and help you with your problems and you can know All the commands by the command <b class="cm-error">help</b> <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Command Line.png" width="10" height="10"></span></li>
-    <li>You Have Awesome Colors Picker That Colors Picker support (HEX,RGB,RGBA,HSL,HSLA) <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ColorsPicker.png" width="12" height="12"></span></li>
-    <li>You Have File to Base64 Conventor You Can Convert any file and any text to Base64 string and use it in your HTML Project <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/icon-partlock.png" width="12" height="12"></span></li>
-    <li>You Have image to ASCII art Conventor Now You Can esy Convert Your images to ASCII art and use it as Awesome addon in Your HTML Page a ASCII art is Awesome addon to Your website is have Awesome Style and is Can ADD Nice touch To The website <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/ASCII.png" width="12" height="12"></span></li>
-    <li>You Have awesome Browser with source code viewer and You Can Browsing The internet And view source code of any website <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Tools.png" width="12" height="12"> in a real time and You Can Change The source code of the website and You Can drop the source code to the editor <span class="disabled">NOTICE: The source code of the sites you view in the code viewer may be subject to licensing under a license, contain copyright, or may be a legally registered trademark. Viewing the source code may get you into trouble or you may be sued for viewing or copying the source code of the sites. Our website is not responsible for the misuse of the source code viewer</span><span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/Browser.png" width="12" height="12"></span></li>
-    <li>And That button is for open the Editor Settings The in The Settings You Have Some options to customize the website by your style You Can (Change a font Size , Change a Font Family , Change A User Agent , Change Editor Theme, Change A Colors Picker , Change a File Encoding Of a File Reader , switch a Run Mode in (New Window or Editor Run)) <span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/GSettings.png" width="12" height="12"></span></li>
-    <li>to view This Page <span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/about.png" width="12" height="12"></span></li>
+    <li>Open and view HTML Files and add it as new window or add movie or Run a music in the background <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/files.png" width="10" height="10"></span></li>
+    <li>You Have Awesome Notepade with Syntax Colors This Notepade is Not Just Normally Notepad This Notepad Can Colorize a Program Codes and Explore The Syntax Errors <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/1d27e94b93975a8a35a73bea29d8d2b76912a01299437c4bb5fd9d94fe24453c.0.png" width="10" height="10"></span></li>
+    <li>You Have advanced command line interface this interface is make you can give the commands to the editor and the existing codes inside the editor this command line can customize the editor and help you with your problems and you can know All the commands by the command <b class="cm-error">help</b> <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Command Line.png" width="10" height="10"></span></li>
+    <li>You Have Awesome Colors Picker That Colors Picker support (HEX,RGB,RGBA,HSL,HSLA) <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ColorsPicker.png" width="12" height="12"></span></li>
+    <li>You Have File to Base64 Conventor You Can Convert any file and any text to Base64 string and use it in your HTML Project <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/icon-partlock.png" width="12" height="12"></span></li>
+    <li>You Have image to ASCII art Conventor Now You Can esy Convert Your images to ASCII art and use it as Awesome addon in Your HTML Page a ASCII art is Awesome addon to Your website is have Awesome Style and is Can ADD Nice touch To The website <span class="Pathe">menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/ASCII.png" width="12" height="12"></span></li>
+    <li>You Have awesome Browser with source code viewer and You Can Browsing The internet And view source code of any website <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Tools.png" width="12" height="12"> in a real time and You Can Change The source code of the website and You Can drop the source code to the editor <span class="disabled">NOTICE: The source code of the sites you view in the code viewer may be subject to licensing under a license, contain copyright, or may be a legally registered trademark. Viewing the source code may get you into trouble or you may be sued for viewing or copying the source code of the sites. Our website is not responsible for the misuse of the source code viewer</span><span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/Browser.png" width="12" height="12"></span></li>
+    <li>And That button is for open the Editor Settings The in The Settings You Have Some options to customize the website by your style You Can (Change a font Size , Change a Font Family , Change A User Agent , Change Editor Theme, Change A Colors Picker , Change a File Encoding Of a File Reader , switch a Run Mode in (New Window or Editor Run)) <span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/GSettings.png" width="12" height="12"></span></li>
+    <li>to view This Page <span class="Pathe"> menu > <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/about.png" width="12" height="12"></span></li>
     <li>You Can Change The Font Size by the slider You Have From 0 to 100 <b class="Pathe" onclick="GoTo()">menu > Settings > font Size.</b></li>
     <li>You Can Change The Font Family From The options You Have 9 Fonts and You Can ADD Custome Font. <b class="Pathe" onclick="GoTo()">menu > Settings > font family</b></li>
     <li>You Can Change The Font Family From The options You Have 9 Fonts and You Can ADD Custome Font Size <b class="Pathe" onclick="GoTo()">menu > Settings > font family > Custom</b></li>
@@ -5210,7 +5210,7 @@ function typeWriter() {
 <textarea id="text4Copy"></textarea>
 <textarea id="defaultCode" hidden>PCFkb2N0eXBlIGh0bWw+CiAgPGh0bWw+CiAgICA8aGVhZD4KICAgICAgPHRpdGxlPlBhZ2UgdGl0bGU8L3RpdGxlPgogICAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCIgY2hhcnNldD0iVVRGLTgiPgogICAgICA8c3R5bGU+CiAgICAgICAgLyogQ1NTIHN0eWxlc2hlZXQgKi8KICAgICAgPC9zdHlsZT4KICAgICAgPHNjcmlwdD4KICAgICAgICAvLyBKUyBzY3JpcHQKICAgICAgPC9zY3JpcHQ+CiAgICA8L2hlYWQ+CiAgICA8Ym9keT4KICAgICAgPCEtLSBzb21lIGNvZGVzIGZvciB0aGUgYm9keSAtLT4KICAgIDwvYm9keT4KICA8L2h0bWw+</textarea>
   <div id="NOJS">
-    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/myimages/JS_file.svg" class="js-icon"><br>
+    <img src="https://raw.githubusercontent.com/IDE-hyper-account/IDE-hyper-account/main/JS_file.svg" class="js-icon"><br>
     <button class="cuntenue" onclick="tryAgain()">Re Try</button>
   </div>
   <div id="filename-input">
