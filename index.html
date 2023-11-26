@@ -3663,13 +3663,6 @@ setTimeout(CodeMirror.showHint,600);
 
 */
       // Standalone 
-var ColorPicker = CodeMirrorColorPicker.ColorPicker;
-var colorpicker = new ColorPicker({
-    color: 'blue', // init color code 
-    position: 'inline',   // default show 
-    container : '#color-container',
-    type : "macos" // or 'sketch',  default type is 'chromedevtool'
-});
 var editors = document.querySelectorAll(".CodeMirror");
     for(var i = 0, len = editors.length; i < len; i++) {
         var itedm = editors[i];
