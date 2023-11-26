@@ -3602,31 +3602,6 @@ xhr.send();
   <table id="Recent_Loader">
     <tr><td><select id="Recent" onchange="SelectRecent()"></select></td><td><button onclick="AddRecent()" class="add_Recent">ADD</button></td></tr>
   </table>
-	  <div id="vscode">
-  <div class="colorpicker-style" data-type="vscode"></div>
-  </div>
-<style>
-  .codemirror-colorpicker{
-    background: #1a1a1a;
-    width: 100%;
-  }
-</style>
-<script>
-/* CodeMirrorColorPicker Basic Usage */
-        var Color = CodeMirrorColorPicker.Color;
-        var nodes = document.querySelectorAll(".colorpicker-style");
-        for(var i = 0, len = nodes.length; i < len; i++) {
-        var item = nodes[i];
-        var picker = new CodeMirrorColorPicker.create({
-        position: 'inline',
-        container: item,
-        type: item.getAttribute("data-type"),
-        color: 'red',
-        outputFormat: 'hex',    
-        hideDelay: 0,
-        });
-        }
-</script>
   <textarea id="editor" onclick="editorOnclick()"><!doctype html>
   <html>
     <head>
