@@ -1,0 +1,513 @@
+<script src="codemirror-colorpicker.js"></script>
+<link rel="stylesheet" href="codemirror-colorpicker.css" />
+<div id="macos">
+  <div class="colorpicker-style" data-type="macos"></div>
+  </div>
+<div id="default">
+  <div class="colorpicker-style" data-type="default"></div>
+  </div>
+<div id="sketch">
+  <div class="colorpicker-style" data-type="sketch"></div>
+  </div>
+<div id="ring">
+  <div class="colorpicker-style" data-type="ring"></div>
+  </div>
+<div id="xd">
+  <div class="colorpicker-style" data-type="xd"></div>
+  </div>
+<div id="vscode">
+  <div class="colorpicker-style" data-type="vscode"></div>
+  </div>
+<style>
+  .codemirror-colorpicker{
+    background: #1a1a1a;
+    width: 100%;
+  }
+</style>
+<script>
+/* CodeMirrorColorPicker Basic Usage */
+        var Color = CodeMirrorColorPicker.Color;
+        var nodes = document.querySelectorAll(".colorpicker-style");
+        for(var i = 0, len = nodes.length; i < len; i++) {
+        var item = nodes[i];
+        var picker = new CodeMirrorColorPicker.create({
+        position: 'inline',
+        container: item,
+        type: item.getAttribute("data-type"),
+        color: 'red',
+        outputFormat: 'hex',    
+        hideDelay: 0,
+        });
+        }
+</script>
+<section class="colorpalette-area">
+<div class="circle white"></div>
+<div class="circle yellow"></div>
+<h1> Image Palette</h1>    
+<div>
+    <div class="area-item">
+            <div class="image-select-input">
+             <input type="file" id="image" onchange="generatePalette()">
+            </div>            
+            <div>
+                    <img id="palette-image">
+            </div>
+        
+    </div>
+    <div class="area-item">
+        <div class="image-palette" id="image-palette">
+
+        </div>
+    </div>    
+</div>
+</section>
+<script>
+    function generatePalette () {
+        var blob = document.getElementById('image').files[0];
+        var Color = CodeMirrorColorPicker.Color;
+        document.getElementById('palette-image').src = URL.createObjectURL(blob);
+
+        Color.ImageToRGB(blob, { maxWidth: 100 }, function (results) {
+            const colors = Color.palette(results, 16);
+
+            var fragment = document.createDocumentFragment();
+            for (var i = 0, len = colors.length; i < len; i++) {
+                var dom = document.createElement('div');
+                dom.classList.add('color-item');
+    
+
+                dom.setAttribute('title', colors[i]);
+                dom.style.backgroundColor =  colors[i];
+
+                fragment.appendChild(dom);
+            }
+
+            document.getElementById('image-palette').innerHTML = "";
+            document.getElementById('image-palette').appendChild(fragment);
+        })
+    }
+
+    function view_histogram () {
+        var args = Array.prototype.slice.call(arguments);
+        var file = document.getElementById('imageforfilter').files[0];
+        document.getElementById('sampled-image').src = URL.createObjectURL(file);
+
+        Color.ImageToHistogram(file, function (url) {
+            document.getElementById('filtered-image').src = url;
+        }, {red: true, green: true})
+    }
+
+    function filter_image (A, B, C) {
+        var args = Array.prototype.slice.call(arguments);
+        var file = document.getElementById('imageforfilter').files[0];
+        var ImageFilter = CodeMirrorColorPicker.ImageFilter;
+        document.getElementById('sampled-image').src = URL.createObjectURL(file);
+
+        Color.ImageToCanvas(file, ImageFilter.merge(args), function (canvas) {
+            document.getElementById("canvas-image").innerHTML = "" 
+            document.getElementById('canvas-image').appendChild(canvas)
+        })
+    }  
+
+    
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+    }
+    var colors = [ 'red', 'blue', 'white' ];
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>
+html, body {
+        padding:0px;
+        margin:0px;
+    }
+    h1.title {
+        margin-top:0px;
+        color: white;
+        padding: 50px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(255, 255, 255);
+    }
+
+    section {
+        background-color: rgb(29, 37, 43);
+        min-height: 900px;
+
+    }
+
+    section.main {
+        min-height: auto;
+    }
+
+    section.colorpicker-style-list {
+        background-color: rgb(247, 227, 213)
+    }
+
+    section.colorpicker-style-list > h1 {
+        margin-top:0px;
+        margin-bottom:0px;
+        color: rgb(128, 198, 217);
+        padding: 70px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    section.colorpicker-style-list > div {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+    section.colorpalette-area {
+        background-color: #584592;
+        position: relative;
+    }
+
+    section.colorpalette-area .circle.white {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid white;
+        left: 10px;
+        top: 50px;        
+        z-index: 0;
+    }
+
+
+    section.colorpalette-area:after {
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgb(246, 107, 107);
+        left: 150px;
+        bottom: 100px;        
+    }    
+
+
+    section.colorpalette-area > h1 {
+        margin-top:0px;
+        margin-bottom:0px;
+        color: #e2cf32;
+        padding: 70px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    section.colorpalette-area > div:not(.circle) {
+        max-width: 920px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+    section.colorpalette-area .area-item {
+        width: 300px;
+        box-sizing: border-box;
+        border:0px;
+        margin:0px;
+        display: inline-block;
+        height: 400px;
+        box-shadow: 0 0 0 0 rgba(213, 235, 255, 0.192);
+        vertical-align: middle;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    section.colorpalette-area .area-item .image-select-input {
+        padding: 5px 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: rgba(213, 235, 255, 0.192);
+    }
+
+    section.colorpalette-area .area-item  img{
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+
+
+    section.color-scale-area {
+        background-color: #80c6d9;
+        position: relative;
+    }
+
+    section.color-scale-area:before {
+        position: absolute;
+        content: "";
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-color: rgb(226, 207, 50);
+        left: -250px;
+        top: 50%;
+        margin-top: -250px;
+    }
+
+    section.color-scale-area:after {
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgb(88, 69, 146);
+        left: 150px;
+        bottom: 100px;        
+    }
+
+    section.color-scale-area > h1 {
+        margin-top:0px;
+        margin-bottom:0px;
+        color: white;
+        padding: 70px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    section.color-scale-area > div {
+        max-width: 820px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+    section.color-scale-area .area-item {
+        width: 400px;
+        box-sizing: border-box;
+        border:0px;
+        margin:0px;
+        display: inline-block;
+        height: 400px;
+        box-shadow: 0 0 0 0 rgba(213, 235, 255, 0.192);
+        vertical-align: middle;
+        text-align: center;
+    }    
+
+    section.color-scale-area .area-item .daimond {
+        margin: 0 auto;
+    }
+
+
+    section.color-scale-template-area {
+        background-color: rgba(248, 107, 107, 0.1);
+    }
+
+    section.color-scale-template-area > h1 {
+        margin-top:0px;
+        margin-bottom:0px;
+        color: #f7f7f7;
+        padding: 70px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    section.color-scale-template-area > div {
+        max-width: 820px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+    section.color-scale-template-area h3 {
+        max-width: 820px;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        text-align: center;
+    }        
+
+    section.color-scale-template-area > div .color-scale {
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    section.color-gradient-template-area {
+        background-color: rgb(248, 107, 107);
+    }
+
+    section.color-gradient-template-area > h1 {
+        margin-top:0px;
+        margin-bottom:0px;
+        color: #f7f7f7;
+        padding: 70px;
+        text-align: center;
+        font-size: 50px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    section.color-gradient-template-area > div {
+        max-width: 820px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
+
+    section.color-gradient-template-area h3 {
+        max-width: 820px;
+        margin: 0 auto;
+        padding-bottom: 10px;
+        text-align: center;
+    }    
+
+    section.color-gradient-template-area > div .color-gradient {
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }    
+
+
+    .codemirror-area {
+        max-width: 800px;
+        height: 600px;
+        margin: 0 auto;
+    }
+    .CodeMirror {
+        border: 1px solid #eee;
+        height: 300px;
+    }
+
+    .color-scale {
+        display:flex;
+        max-width: 500px;
+        margin-bottom: 5px;
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2NctWrVfwYkEBYWxojMZ6SDAmT7QGx0K1EcRBsFAADeG/3M/HteAAAAAElFTkSuQmCC") repeat;            
+    }
+
+    .color-scale * {
+        flex: 1; 
+        height: 30px;
+        position: relative;        
+    }
+
+    .color-scale *:hover:after {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        content: attr(title);
+        position:absolute;
+        left:50%;
+        bottom:100%;
+        background-color: black;
+        color: white;
+        transform:translateX(-50%);
+    }
+
+    .color-gradient {
+        display:flex;
+        max-width: 500px;
+        margin-bottom: 5px;
+        display: -webkit-flex; /* Safari */
+        -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+        display: flex;   
+        flex-wrap: wrap;   
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2NctWrVfwYkEBYWxojMZ6SDAmT7QGx0K1EcRBsFAADeG/3M/HteAAAAAElFTkSuQmCC") repeat;                         
+    }
+
+
+    .color-gradient > * {
+        flex:1;
+        height: 30px;
+        position: relative;        
+    }
+
+    .color-gradient *:hover:after {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        content: attr(title);
+        position:absolute;
+        left:50%;
+        bottom:100%;
+        background-color: black;
+        color: white;
+        transform:translateX(-50%);
+    }    
+
+    .daimond {
+        width: 300px;
+        height: 300px;
+        box-sizing:border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .daimond .row {
+        flex: 1; 
+        display: flex;
+    }
+
+    .daimond .row .column {
+        flex: 1;
+        height: 100%;
+        position: relative;
+
+    }
+
+    .daimond .row .column:hover:after {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        content: attr(title);
+        position:absolute;
+        left:50%;
+        bottom:100%;
+        background-color: black;
+        color: white;
+        transform:translateX(-50%);
+        pointer-events: none;
+    }
+
+    #image-palette .color-item {
+        display:inline-block;
+        width: 100px;
+        height: 100px;
+        padding: 40px 20px;        
+        box-sizing: border-box;
+    }
+
+    #image-palette .color-item:before {
+        content: attr(title);
+        color: black;
+        vertical-align: middle;
+
+        box-sizing: border-box;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    #image-palette {
+        max-width: 500px;
+    }
+
+    .colorpicker-type {
+        display: inline-block;
+        width: 270px;
+        vertical-align: top;
+    }
+
+    footer {
+        padding: 100px;
+        background-color: rgb(29, 37, 43);
+        color: #ececec;
+    }
+
+    footer .email  {
+        float: right;
+        color: rgba(252, 201, 34, 0.767);
+    }
+
+    .image-select-input > div {
+        padding-bottom: 2px;
+    }
+
+    #canvas-image canvas {
+        max-width: 300px;
+    }
+</style>
