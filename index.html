@@ -9,12 +9,15 @@
 
 window.addEventListener("load", function(event) {
     event.preventDefault();
+    window.stop();
 });
 window.addEventListener("loadstart", function(event) {
       event.preventDefault();
+      window.stop();
 });
 window.addEventListener("loadend", function(event) {
     event.preventDefault();
+    window.stop();
 });
 </script>
 
