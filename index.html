@@ -5,22 +5,6 @@
 <meta name="description" content="Welcome to IDE editor the Best Place for the WEB Developmenter's">
 <meta name="keywords" content="Welcome to IDE editor the Best Place for the WEB Developmenter's,IDE,IDE Code Editor,IDE Editor,IDE Editor,Online Code Editor, Code Editor, online IDE, WEB IDE, the Best Place for the WEB Developmenter's, Best Code Editor">
 <meta name="author" content="Zezo Foad">
-<script>
-
-window.addEventListener("load", function(event) {
-    event.preventDefault();
-    window.stop();
-});
-window.addEventListener("loadstart", function(event) {
-      event.preventDefault();
-      window.stop();
-});
-window.addEventListener("loadend", function(event) {
-    event.preventDefault();
-    window.stop();
-});
-</script>
-
 <style>
 /* IDE Theme For CodeMirror */
 .cm-s-IDE.CodeMirror {
@@ -29954,7 +29938,8 @@ function LoadedOptions(){
   editor.setValue(decodeURI(atob(document.getElementById("defaultCode").value)));
 }
  window.onload= function() {
-
+document.getElementById("Boot-loader").style.opacity="";
+  document.getElementById("Boot-loader").style.visibility=""";
   CloseAbout();
 LoadedData();
 ResizeIDE(),ResizeIDE22();
