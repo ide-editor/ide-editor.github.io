@@ -2,8 +2,8 @@
 <script>
 window.addEventListener('message', function(event) {
     if (event.origin !== 'https://ide-editor.github.io') {
-        console.log('Origin:', event.origin);
-        console.log('Warning: Received message from an unexpected origin.');
+        document.write('Origin:', event.origin);
+        document.write('Warning: Received message from an unexpected origin.');
     }
 });
 </script>
