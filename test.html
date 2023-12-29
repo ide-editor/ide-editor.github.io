@@ -1,0 +1,17 @@
+<script>
+ window.addEventListener('message', function(event) {
+    // Check if the origin is allowed
+    const allowedOrigins = ['https://www.example.com', 'https://www.anotherexample.com'];
+    if (!allowedOrigins.includes(event.origin)) {
+        return;
+    }
+
+    // Process the event data
+    const data = event.data;
+
+    // Additional logic goes here
+
+    // Respond to the parent frame (optional)
+    event.source.postMessage('Received message: ' + JSON.stringify(data), event.origin);
+});
+</script>
