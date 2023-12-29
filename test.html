@@ -2,8 +2,10 @@
  window.addEventListener('message', function(event) {
     // Check if the origin is allowed
     const allowedOrigins = ['https://www.example.com', 'https://www.anotherexample.com'];
-    if (!allowedOrigins.includes(event.origin)) {
-        return;
+    if (event.origin=="https://www.example.com") {
+        // do nothing
+    }else{
+     alert();
     }
 
     // Process the event data
