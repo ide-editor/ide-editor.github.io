@@ -14,7 +14,7 @@
     mod(require("../../lib/codemirror"), require("./searchcursor"), require("../dialog/dialog"));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./searchcursor", "../dialog/dialog"], mod);
-  else // Plain browser env
+  else // Plain Browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";

@@ -6,7 +6,7 @@
     mod(require("../../lib/codemirror"), require("../../mode/sql/sql"));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "../../mode/sql/sql"], mod);
-  else // Plain browser env
+  else // Plain Browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";

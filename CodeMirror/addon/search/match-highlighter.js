@@ -24,7 +24,7 @@
     mod(require("../../lib/codemirror"), require("./matchesonscrollbar"));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "./matchesonscrollbar"], mod);
-  else // Plain browser env
+  else // Plain Browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
   "use strict";
