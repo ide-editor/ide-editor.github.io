@@ -104,6 +104,11 @@
 <script src="CodeMirror/addon/search/jump-to-line.js"></script>
 <script src="CodeMirrorColorPicker/addon/codemirror-colorpicker.js"></script>
 <script>
+setTimeout(function() {
+  window.stop();
+}, 5000); // stop loading after 5 seconds
+</script>
+<script>
   setTimeout(function(){
     var FireWidth = window.innerWidth||window.outerWidth;
 var FireHeight = window.innerHeight||window.outerHeight;
