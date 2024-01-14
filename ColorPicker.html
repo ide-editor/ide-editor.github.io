@@ -1,0 +1,49 @@
+<script src="CodeMirrorColorPicker/addon/codemirror-colorpicker.js"></script>
+<link rel="stylesheet" href="CodeMirrorColorPicker/addon/codemirror-colorpicker.css" />
+  <div class="colorpicker-style" data-type="macos"></div>
+<style>
+  .codemirror-colorpicker{
+    background: #1a1a1a;
+    margin-left: -13px;
+    margin-top: -9px;
+    position: fixed;
+    width: 102%;
+    height: 100%;
+  }
+</style>
+<script>
+/* CodeMirrorColorPicker Basic Usage */
+window.onload=function(){
+var ColorPicker_URL = window.location.href;
+var ColorPicker_values = new URL(ColorPicker_URL);
+var ColorPicker_mode = ColorPicker_values.searchParams.get("mode");
+var Color = CodeMirrorColorPicker.Color;
+var nodes = document.querySelectorAll(".colorpicker-style");
+for(var i = 0, len = nodes.length; i < len; i++) {
+var item = nodes[i];
+var picker = new CodeMirrorColorPicker.create({
+position: 'inline',
+container: item,
+type: ColorPicker_mode,
+color: 'red',
+outputFormat: 'hex',    
+hideDelay: 0,
+});
+}
+if(!ColorPicker_mode){
+  var Color = CodeMirrorColorPicker.Color;
+var nodes = document.querySelectorAll(".colorpicker-style");
+for(var i = 0, len = nodes.length; i < len; i++) {
+var item = nodes[i];
+var picker = new CodeMirrorColorPicker.create({
+position: 'inline',
+container: item,
+type: "macos",
+color: 'red',
+outputFormat: 'hex',    
+hideDelay: 0,
+});
+}
+}
+};
+</script>
