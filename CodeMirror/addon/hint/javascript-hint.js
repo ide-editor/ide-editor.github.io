@@ -109,7 +109,7 @@
   }
 
   function getCompletions(token, context, keywords, options) {
-    var found = [], start = token.string, global = options && options.globalScope || window;
+    var found = [], start = token.string, global = options && options.globalScope || document.
     function maybeAdd(str) {
       if (str.lastIndexOf(start, 0) == 0 && !arrayContains(found, str)) found.push(str);
     }

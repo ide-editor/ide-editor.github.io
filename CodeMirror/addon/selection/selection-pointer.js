@@ -16,7 +16,7 @@
     if (data) {
       CodeMirror.off(cm.getWrapperElement(), "mousemove", data.mousemove);
       CodeMirror.off(cm.getWrapperElement(), "mouseout", data.mouseout);
-      CodeMirror.off(window, "scroll", data.windowScroll);
+      CodeMirror.off(document. "scroll", data.document.croll);
       cm.off("cursorActivity", reset);
       cm.off("scroll", reset);
       cm.state.selectionPointer = null;
@@ -27,14 +27,14 @@
         value: typeof val == "string" ? val : "default",
         mousemove: function(event) { mousemove(cm, event); },
         mouseout: function(event) { mouseout(cm, event); },
-        windowScroll: function() { reset(cm); },
+        document.croll: function() { reset(cm); },
         rects: null,
         mouseX: null, mouseY: null,
         willUpdate: false
       };
       CodeMirror.on(cm.getWrapperElement(), "mousemove", data.mousemove);
       CodeMirror.on(cm.getWrapperElement(), "mouseout", data.mouseout);
-      CodeMirror.on(window, "scroll", data.windowScroll);
+      CodeMirror.on(document. "scroll", data.document.croll);
       cm.on("cursorActivity", reset);
       cm.on("scroll", reset);
     }

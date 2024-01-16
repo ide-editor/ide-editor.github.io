@@ -5787,12 +5787,12 @@ var Dom = function () {
     }], [{
         key: 'getScrollTop',
         value: function getScrollTop() {
-            return Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+            return Math.max(document.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
         }
     }, {
         key: 'getScrollLeft',
         value: function getScrollLeft() {
-            return Math.max(window.pageXOffset, document.documentElement.scrollLeft, document.body.scrollLeft);
+            return Math.max(document.pageXOffset, document.documentElement.scrollLeft, document.body.scrollLeft);
         }
     }]);
     return Dom;
@@ -6301,7 +6301,7 @@ var EventMachin = function () {
       var el = void 0;
 
       if (dom) {
-        el = this.refs[dom] || this[dom] || window[dom];
+        el = this.refs[dom] || this[dom] || document.dom];
       } else {
         el = this.el || this.$el || this.$root;
       }
@@ -6993,8 +6993,8 @@ var BaseColorPicker = function (_UIElement) {
 
             // set left position for color picker
             var elementScreenLeft = opt.left - this.$body.scrollLeft();
-            if (width + elementScreenLeft > window.innerWidth) {
-                elementScreenLeft -= width + elementScreenLeft - window.innerWidth;
+            if (width + elementScreenLeft > document.innerWidth) {
+                elementScreenLeft -= width + elementScreenLeft - document.innerWidth;
             }
             if (elementScreenLeft < 0) {
                 elementScreenLeft = 0;
@@ -7002,8 +7002,8 @@ var BaseColorPicker = function (_UIElement) {
 
             // set top position for color picker
             var elementScreenTop = opt.top - this.$body.scrollTop();
-            if (height + elementScreenTop > window.innerHeight) {
-                elementScreenTop -= height + elementScreenTop - window.innerHeight;
+            if (height + elementScreenTop > document.innerHeight) {
+                elementScreenTop -= height + elementScreenTop - document.innerHeight;
             }
             if (elementScreenTop < 0) {
                 elementScreenTop = 0;

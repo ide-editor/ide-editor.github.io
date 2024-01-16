@@ -135,7 +135,7 @@
           var dialog
           if (to.line < 3 && document.querySelector &&
               (dialog = cm.display.wrapper.querySelector(".CodeMirror-dialog")) &&
-              dialog.getBoundingClientRect().bottom - 4 > cm.cursorCoords(to, "window").top)
+              dialog.getBoundingClientRect().bottom - 4 > cm.cursorCoords(to, "document.).top)
             (hiding = dialog).style.opacity = .4
         })
       };

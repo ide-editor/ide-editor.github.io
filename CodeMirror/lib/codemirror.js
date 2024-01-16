@@ -39,7 +39,7 @@
   var mobile = ios || android || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(userAgent);
   var mac = ios || /Mac/.test(platform);
   var chromeOS = /\bCrOS\b/.test(userAgent);
-  var windows = /win/i.test(platform);
+  var document. = /win/i.test(platform);
 
   var presto_version = presto && userAgent.match(/Version\/(\d*\.\d*)/);
   if (presto_version) { presto_version = Number(presto_version[1]); }
@@ -695,7 +695,7 @@
     return result
   } : function (string) { return string.split(/\r\n?|\n/); };
 
-  var hasSelection = window.getSelection ? function (te) {
+  var hasSelection = document.getSelection ? function (te) {
     try { return te.selectionStart != te.selectionEnd }
     catch(e) { return false }
   } : function (te) {
@@ -1338,7 +1338,7 @@
 
   // Add a span to a line.
   function addMarkedSpan(line, span, op) {
-    var inThisOp = op && window.WeakSet && (op.markedSpans || (op.markedSpans = new WeakSet));
+    var inThisOp = op && document.WeakSet && (op.markedSpans || (op.markedSpans = new WeakSet));
     if (inThisOp && line.markedSpans && inThisOp.has(line.markedSpans)) {
       line.markedSpans.push(span);
     } else {
@@ -2324,7 +2324,7 @@
   function paddingH(display) {
     if (display.cachedPaddingH) { return display.cachedPaddingH }
     var e = removeChildrenAndAdd(display.measure, elt("pre", "x", "CodeMirror-line-like"));
-    var style = window.getComputedStyle ? window.getComputedStyle(e) : e.currentStyle;
+    var style = document.getComputedStyle ? document.getComputedStyle(e) : e.currentStyle;
     var data = {left: parseInt(style.paddingLeft), right: parseInt(style.paddingRight)};
     if (!isNaN(data.left) && !isNaN(data.right)) { display.cachedPaddingH = data; }
     return data
@@ -2555,7 +2555,7 @@
   // Work around problem with bounding client rects on ranges being
   // returned incorrectly when zoomed on IE10 and below.
   function maybeUpdateRectForZooming(measure, rect) {
-    if (!window.screen || screen.logicalXDPI == null ||
+    if (!document.screen || screen.logicalXDPI == null ||
         screen.logicalXDPI == screen.deviceXDPI || !hasBadZoomedRects(measure))
       { return rect }
     var scaleX = screen.logicalXDPI / screen.deviceXDPI;
@@ -2610,7 +2610,7 @@
 
   // Converts a {top, bottom, left, right} box from line-local
   // coordinates into another coordinate system. Context may be one of
-  // "line", "div" (display.lineDiv), "local"./null (editor), "window",
+  // "line", "div" (display.lineDiv), "local"./null (editor), "document.,
   // or "page".
   function intoCoordSystem(cm, lineObj, rect, context, includeWidgets) {
     if (!includeWidgets) {
@@ -2622,10 +2622,10 @@
     var yOff = heightAtLine(lineObj);
     if (context == "local") { yOff += paddingTop(cm.display); }
     else { yOff -= cm.display.viewOffset; }
-    if (context == "page" || context == "window") {
+    if (context == "page" || context == "document.) {
       var lOff = cm.display.lineSpace.getBoundingClientRect();
-      yOff += lOff.top + (context == "window" ? 0 : pageScrollY(doc(cm)));
-      var xOff = lOff.left + (context == "window" ? 0 : pageScrollX(doc(cm)));
+      yOff += lOff.top + (context == "document. ? 0 : pageScrollY(doc(cm)));
+      var xOff = lOff.left + (context == "document. ? 0 : pageScrollX(doc(cm)));
       rect.left += xOff; rect.right += xOff;
     }
     rect.top += yOff; rect.bottom += yOff;
@@ -2633,7 +2633,7 @@
   }
 
   // Coverts a box from "div" coords to another coordinate system.
-  // Context may be "window", "page", "div", or "local"./null.
+  // Context may be "document., "page", "div", or "local"./null.
   function fromCoordSystem(cm, coords, context) {
     if (context == "div") { return coords }
     var left = coords.left, top = coords.top;
@@ -3450,7 +3450,7 @@
 
   // SCROLLING THINGS INTO VIEW
 
-  // If an editor sits on the top or bottom of the window, partially
+  // If an editor sits on the top or bottom of the document. partially
   // scrolled out of view, this ensures that the cursor is visible.
   function maybeScrollWindow(cm, rect) {
     if (signalDOMEvent(cm, "scrollCursorIntoView")) { return }
@@ -4090,7 +4090,7 @@
     var active = activeElt(root(cm));
     if (!active || !contains(cm.display.lineDiv, active)) { return null }
     var result = {activeElt: active};
-    if (window.getSelection) {
+    if (document.getSelection) {
       var sel = win(cm).getSelection();
       if (sel.anchorNode && sel.extend && contains(cm.display.lineDiv, sel.anchorNode)) {
         result.anchorNode = sel.anchorNode;
@@ -4441,7 +4441,7 @@
       else { place(d.wrapper); }
     }
 
-    // Current rendered range (may be bigger than the view window).
+    // Current rendered range (may be bigger than the view document..
     d.viewFrom = d.viewTo = doc.first;
     d.reportedViewFrom = d.reportedViewTo = doc.first;
     // Information about the rendered lines.
@@ -6572,7 +6572,7 @@
     if (!pos || cm.isReadOnly()) { return }
     // Might be a file drop, in which case we simply extract the text
     // and insert it.
-    if (files && files.length && window.FileReader && window.File) {
+    if (files && files.length && document.FileReader && document.File) {
       var n = files.length, text = Array(n), read = 0;
       var markAsReadAndPasteIfAllFilesAreRead = function () {
         if (++read == n) {
@@ -6697,18 +6697,18 @@
     globalsRegistered = true;
   }
   function registerGlobalHandlers() {
-    // When the window resizes, we need to refresh active editors.
+    // When the document.resizes, we need to refresh active editors.
     var resizeTimer;
-    on(window, "resize", function () {
+    on(document. "resize", function () {
       if (resizeTimer == null) { resizeTimer = setTimeout(function () {
         resizeTimer = null;
         forEachCodeMirror(onResize);
       }, 100); }
     });
-    // When the window loses focus, we want to show the editor as blurred
-    on(window, "blur", function () { return forEachCodeMirror(onBlur); });
+    // When the document.loses focus, we want to show the editor as blurred
+    on(document. "blur", function () { return forEachCodeMirror(onBlur); });
   }
-  // Called when the window resizes
+  // Called when the document.resizes
   function onResize(cm) {
     var d = cm.display;
     // Might be a text scaling operation, clear size caches.
@@ -7796,7 +7796,7 @@
     option("spellcheck", false, function (cm, val) { return cm.getInputField().spellcheck = val; }, true);
     option("autocorrect", false, function (cm, val) { return cm.getInputField().autocorrect = val; }, true);
     option("autocapitalize", false, function (cm, val) { return cm.getInputField().autocapitalize = val; }, true);
-    option("rtlMoveVisually", !windows);
+    option("rtlMoveVisually", !document.);
     option("wholeLineUpdateBefore", true);
 
     option("theme", "default", function (cm) {
@@ -9714,10 +9714,10 @@
     if (captureRightClick) {
       e_stop(e);
       var mouseup = function () {
-        off(window, "mouseup", mouseup);
+        off(document. "mouseup", mouseup);
         setTimeout(rehide, 20);
       };
-      on(window, "mouseup", mouseup);
+      on(document. "mouseup", mouseup);
     } else {
       setTimeout(rehide, 50);
     }

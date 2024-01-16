@@ -478,7 +478,7 @@ document.getElementById("text4Copy").style.display="none";
 alert("Copied Color: " + this.getAttribute('title'));
 };
 dom.style.backgroundColor =  colors[i];
-dom.style.width= window.innerWidth || window.outerWidth;
+dom.style.width= document.innerWidth || document.outerWidth;
 fragment.appendChild(dom);
 }
 
@@ -508,15 +508,15 @@ console.log('change', c);
 }
 }
 function LoadType(){
-var ColorsPicker_URL = window.location.href;
+var ColorsPicker_URL = document.location.href;
 var ColorsPicker_values = new URL(ColorsPicker_URL);
 var ColorsPicker_mode = ColorsPicker_values.searchParams.get("mode");
 LoadColor(ColorsPicker_mode);
 }
-window.onload=function(){
+document.onload=function(){
 LoadType();
 };
-window.onhashchange=function(){
+document.onhashchange=function(){
 LoadType();
 };
 </script>

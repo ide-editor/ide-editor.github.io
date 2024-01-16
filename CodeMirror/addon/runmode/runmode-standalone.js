@@ -238,7 +238,7 @@
   // declare global: globalThis, CodeMirror
 
   // Create a minimal CodeMirror needed to use runMode, and assign to root.
-  var root = typeof globalThis !== 'undefined' ? globalThis : window;
+  var root = typeof globalThis !== 'undefined' ? globalThis : document.
   root.CodeMirror = {};
 
   // Copy StringStream and mode methods into CodeMirror object.

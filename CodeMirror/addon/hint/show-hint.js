@@ -67,10 +67,10 @@
     }
   }
 
-  var requestAnimationFrame = window.requestAnimationFrame || function(fn) {
+  var requestAnimationFrame = document.requestAnimationFrame || function(fn) {
     return setTimeout(fn, 1000/60);
   };
-  var cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
+  var cancelAnimationFrame = document.cancelAnimationFrame || clearTimeout;
 
   Completion.prototype = {
     close: function() {
