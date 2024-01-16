@@ -263,7 +263,7 @@
       { mod(require("../../lib/codemirror")); }
     else if (typeof define == "function" && define.amd) // AMD
       { define(["../../lib/codemirror"], mod); }
-    else // Plain browser env
+    else // Plain Browser env
       { mod(CodeMirror); }
   })(function(CodeMirror) {
 

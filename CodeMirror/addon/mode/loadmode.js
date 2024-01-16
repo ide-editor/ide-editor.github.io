@@ -6,7 +6,7 @@
     mod(require("../../lib/codemirror"), "cjs");
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror"], function(CM) { mod(CM, "amd"); });
-  else // Plain browser env
+  else // Plain Browser env
     mod(CodeMirror, "plain");
 })(function(CodeMirror, env) {
   if (!CodeMirror.modeURL) CodeMirror.modeURL = "../mode/%N/%N.js";
