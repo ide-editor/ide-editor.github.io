@@ -101,7 +101,6 @@
 <script src="CodeMirror/addon/search/search.js"></script>
 <script src="CodeMirror/addon/search/match-highlighter.js"></script>
 <script src="CodeMirror/addon/search/jump-to-line.js"></script>
-<script src="IDE.js"></script>
 <script>
   setTimeout(function(){
     var FireWidth = window.innerWidth||window.outerWidth;
@@ -4951,7 +4950,7 @@ Based on jsqrencode | (C) 2010 tz@execpc.com | GPL v3 License
   <button id="wrbtn" onclick="typeWriter()" hidden>Click me</button>
 <pre id="demo"></pre>
      <p class="By-Programmer"></p>
-  <div class="Start-button-Loader"><button onclick="StartUsing()" class="Start-button">Let's Start</button></div>
+  <div class="Start-button-Loader"><button onclick="StartUsing(),setColorsPicker()" class="Start-button">Let's Start</button></div>
 <textarea id="txt">Welcome to IDE editor the Best Place for the WEB Developmenter's</textarea>
 <script>
 var i = 0;
