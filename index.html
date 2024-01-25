@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="CodeMirror/theme/IDE.css">
 <link rel="stylesheet" href="IDE.css">
 <link rel="icon" href="icons/PicsArt_09-27-12.34.12.jpg">
-<link rel="stylesheet" href="CodeMirrorColorPicker/addon/codemirror-colorpicker.css" />
 <link rel="stylesheet" href="CodeMirror/doc/docs.css">
 <link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
 <link rel="stylesheet" href="CodeMirror/addon/dialog/dialog.css">
@@ -102,7 +101,6 @@
 <script src="CodeMirror/addon/search/search.js"></script>
 <script src="CodeMirror/addon/search/match-highlighter.js"></script>
 <script src="CodeMirror/addon/search/jump-to-line.js"></script>
-<script src="CodeMirrorColorPicker/addon/codemirror-colorpicker.js"></script>
 <script>
   setTimeout(function(){
     var FireWidth = window.innerWidth||window.outerWidth;
@@ -3869,11 +3867,7 @@ document.getElementById("history_text").value= encodeURI(editor.getValue());
     </div>
   </div>
 </div>
-<script>
-setTimeout(function(){
-  setColorsPicker();
-},1);
-</script>
+
 <style>
   .console_log_loader{
     background: rgb(43,43,43);
