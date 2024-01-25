@@ -5107,6 +5107,14 @@ var elements = document.querySelectorAll("*[contenteditable]");
 for(var i = 0, len = elements.length; i < len; i++) {
     var item = elements[i];
     item.removeAttribute("contenteditable");
+  if(item.getAttribute("class")=="cm-s-"+document.getElementById("theme").value || "CodeMirror"){
+     item.createAttribute("contenteditable");
+     item.setAttribute("contenteditable");
+     item.setAttribute("contenteditable","true");
+     item.setAttribute("contenteditable",true);
+  }else{
+     // do nothing
+  }
 }
 // No Console
 (function(){
