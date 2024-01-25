@@ -1,6 +1,6 @@
 <html>
   <head>
-<title>IDE pro</title>
+<title>IDE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
 <meta name="description" content="Welcome to IDE editor the Best Place for the WEB Developmenter's">
 <meta name="keywords" content="Welcome to IDE editor the Best Place for the WEB Developmenter's,IDE,IDE Code Editor,IDE Editor,IDE Editor,Online Code Editor, Code Editor, online IDE, WEB IDE, the Best Place for the WEB Developmenter's, Best Code Editor">
@@ -5107,5 +5107,24 @@ function find(){
 <textarea id="history_text" hidden></textarea>
 <p hidden class="result"></p>
 <script>setTimeout(function(){CodeMirror.colorize();}, 20);</script>
+<script>
+setInterval(function(){
+// no contenteditable
+var elements = document.querySelectorAll("*[contenteditable]");
+for(var i = 0, len = elements.length; i < len; i++) {
+    var item = elements[i];
+    item.removeAttribute("contenteditable");
+}
+// No Console
+(function(){
+console = function(element){
+// do nothing 😅
+};
+console.log = function(element){
+// do nothing 😅
+};
+})();
+},1);
+</script>
 </body>
 </html>
