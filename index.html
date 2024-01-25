@@ -3342,6 +3342,9 @@ setTimeout(function(){
 if(getSearchParam("theme")==""||null){
 document.getElementById("Theme").value="IDE";
 }
+if(!getSearchParam("theme")){
+document.getElementById("Theme").value="IDE";
+}
   selectTheme();
 },120);
 </script>
