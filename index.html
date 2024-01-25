@@ -3339,6 +3339,9 @@ setTimeout(function(){
 <script>
 setTimeout(function(){
   document.getElementById("Theme").value= getSearchParam("theme");
+if(getSearchParam("theme")==""||null){
+document.getElementById("Theme").value="IDE";
+}
   selectTheme();
 },120);
 </script>
