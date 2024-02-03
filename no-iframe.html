@@ -1,4 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>My Website</h2>
+
+<p id="message"></p>
+
 <script>
-alert(window.location.origin);
-alert(document.location.origin);
+// Check if the website is embedded in an iframe
+if (window.self !== window.top) {
+    // Add message
+    document.getElementById("message").innerText = "This website is embedded in an iframe.";
+}
 </script>
+
+</body>
+</html>
