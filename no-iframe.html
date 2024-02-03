@@ -1,5 +1,13 @@
 <script>
 window.addEventListener('message', (event) => {
-    alert(event.origin);
+    // Check if the message is coming from the expected source
+    if (event.source !== window.opener) return;
+
+    // Check if the origin of the message matches the expected origin
+    const expectedOrigin = 'https://ide-editor.github.io'; // Replace with the expected origin
+    if (event.origin !== expectedOrigin) return;
+
+    // Handle the message
+    alert(event.data);
 });
 </script>
