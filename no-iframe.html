@@ -1,16 +1,4 @@
 <script>
-window.addEventListener('message', (event) => {
-    // Check if the message is coming from the expected source
-    if (event.source !== window.opener) return;
-
-    // Check if the origin of the message matches the expected origin
-    const expectedOrigin = 'https://ide-editor.github.io'; // Replace with the expected origin
-    if (event.origin === expectedOrigin) {
-        // Handle the message
-        alert(event.data);
-    } else {
-        // Alert the user if the origin is not the same as the expected origin
-        alert('The origin of this message (' + event.origin + ') does not match the expected origin (' + expectedOrigin + '). This may be a bot or a malicious website.');
-    }
-});
+alert(window.location.origin);
+alert(document.location.origin);
 </script>
