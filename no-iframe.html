@@ -1,13 +1,5 @@
 <script>
 window.addEventListener('message', (event) => {
-    // Check the origin of the message
-    if (event.origin !== 'https://example.com') {
-      // Only accept messages from the expected domain
-      return;
-    }
-
-    // Check the data of the message
-    if (event.data === 'show-alert') {
-      // Show an alert when the 'show-alert' message is received
-      alert('An alert from the embedded site!');
-    }</script>
+    alert(event.origin);
+});
+</script>
