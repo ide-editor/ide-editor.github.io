@@ -10,9 +10,7 @@
 // Check if the website is embedded in an iframe
 if (window.self !== window.top) {
     // Add message
-    document.contentType="text/plain";
     document.getElementById("message").innerText = "This website is embedded in an iframe";
-    alert(document.contentType);
 }else{
     document.getElementById("message").innerText = "This website is not embedded in an iframe.";
 }
