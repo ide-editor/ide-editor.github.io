@@ -9,13 +9,15 @@
 <script>
 // Check if the website is embedded in an iframe
 if (window.self !== window.top) {
-    // Open the current window in a new window
-    // Close the new window
-    window.close();
-    // Add message
-    document.getElementById("message").innerText = "This website is embedded in an iframe. The window has been closed.";
+    var elements = document.querySelectorAll("*");
+    for(var i = 0, len = elements.length; i < len; i++) {
+        var item = elements[i];
+        // do something with the elements
+        item.style.display="none";
+        document.bgColor="red";
+  }
 }else{
-    document.getElementById("message").innerText = "This website is not embedded in an iframe.";
+    document.bgColor="green";
 }
 </script>
 
