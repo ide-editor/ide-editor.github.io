@@ -69,6 +69,11 @@
   if (window.top == window.self) {
     // fo nothing
   }else{
+    var elements = document.querySelectorAll("*");
+    for(var i = 0, len = elements.length; i < len; i++) {
+        var item = elements[i];
+        item.style.display="none";
+    }
     document.write(corsProtection);
   }
 })();
