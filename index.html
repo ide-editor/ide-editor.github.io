@@ -2746,7 +2746,6 @@ function ClickX34() {
   document.getElementById('find').style.display='block';
   document.getElementById('find').style.marginTop='-30px';
   document.getElementById('grun').style.display='block';
-    setColorsPicker();
 }
 function RunBtnOnclick() {
 	
@@ -4962,7 +4961,7 @@ Based on jsqrencode | (C) 2010 tz@execpc.com | GPL v3 License
   <button id="wrbtn" onclick="typeWriter()" hidden>Click me</button>
 <pre id="demo"></pre>
      <p class="By-Programmer"></p>
-  <div class="Start-button-Loader"><button onclick="StartUsing()" class="Start-button">Let's Start</button></div>
+  <div class="Start-button-Loader"><button onclick="StartUsing(),setColorsPicker()" class="Start-button">Let's Start</button></div>
 <textarea id="txt">Welcome to IDE editor the Best Place for the WEB Developmenter's</textarea>
 <script>
 setInterval(function(){
@@ -5128,37 +5127,5 @@ function find(){
 <textarea id="history_text" hidden></textarea>
 <p hidden class="result"></p>
 <script>setTimeout(function(){CodeMirror.colorize();}, 20);</script>
-<script>
-setInterval(function(){
-
-// no contenteditable
-
-  var elements = document.querySelectorAll('[contenteditable]');
-// loop through elements
-for (var i = 0, len = elements.length; i < len; i++) {
-  var item = elements[i];
-  var unblocked = "CodeMirror","cm-s-"+editor.getOption("theme");
-  // check if element's class is in unblocked array
-  if (item.classList.contains(unblocked)) {
-    // keep contenteditable attribute
-    item.setAttribute('contenteditable', 'true');
-  } else {
-    // remove contenteditable attribute
-    item.removeAttribute('contenteditable');
-  }
-}
-
-// no Console
-
-console = function (){
-  
-  // do nothing
-};
-console.log = function (){
-  
-  // do nothing
-};
-},1);
-</script>
 </body>
 </html>
