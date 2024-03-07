@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <title>IDE - image-to-ascii-art</title>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<br>
+<h1>pic➡ascii</h1>
+<h2>image to ascii art convereter</h2>
+
+<label class="fileContainer">
+  upload an image ⤴
+  <input type="file" id="imageLoader" name="imageLoader" />
+</label>
+
+<!-- hidden canvas to pull image data from -->
+<canvas class="imageLoad" id="imageCanvas" hidden></canvas><br /><br>
+<textarea id="hiddenText"></textarea>
+
+<div class="view">
+  <pre id="asciiOut"></pre>
+  <canvas id="display" style="display:none;"></canvas>
+</div>
+<br><br>
+
+<div class="tooltip">
+  <input type="range" class="slider" id="contrast" oninput="changeContrast()" min="-100" max="100" value="-86" step="1">
+  <span class="tooltiptext">change contrast</span>
+  <input type="range" class="slider" id="width" oninput="changeimgSize(),changeContrast()" min="1" max="1000" value="-86" step="1">
+  <input type="range" class="slider" id="height" oninput="changeimgSize(),changeContrast()" min="1" max="1000" value="-86" step="1">
+</div><br>
+<script>
+  function changeimgSize() {
+    
+    img.width= document.getElementById("width").value;
+    img.height= document.getElementById("height").value;
+  }
+</script>
+<button id="gray" onclick="grayIt()">toggle grayscale</button><br><br>
+<button id="copy" onclick="copyOut()">copy</button><br><br>
+<button id="gray" onclick="Save()">Save</button>
+<!-- partial -->
+  <script>
+//TODO: 
+//make it look nice :)
+
+var imageLoader = document.getElementById('imageLoader');
+imageLoader.addEventListener('change', handleImage, false);
+var canvas = document.getElementById('imageCanvas');
+var displayCanvas =
+  document.getElementById("display");
+var ctx = canvas.getContext('2d');
+var disCtx = displayCanvas.getContext('2d');
+var gray = 0;
+var reser = 29 / 56;
+var scaleWidth = 0.28;
+var scaleHeight = 0.28 * reser;
+var outString = "";
+var hide = true;
+var img;
+
+function changeFont() {
+  var fontSize = document.getElementById("fontSize").value;
+  document.getElementById("asciiOut").style.fontSize = fontSize += "px";
+}
+
+function textOut(img) {
+
+  var p = document.getElementById('asciiOut');
+  var imageData = ctx.getImageData(0, 0, img.width * scaleWidth, img.height * scaleHeight);
+  var scale = ['$','@','B','%','8','&','W','M','#','*','o','a','h','k','b','d','p','q','w','m','Z','O','0','Q','L','C','J','U','Y','X','z','c','v','u','n','x','r','j','f','t','/','|','(',')','1','{','}','[',']','?','-','_','+','~','<','>','i','!','l','I',';',':','"','^','`'];
+  var skipLine = false;
+  var convert;
+  var converted;
+  var len = imageData.data.length;
+  var vertCount = 1;
+
+  var calc = img.width * scaleWidth;
+  var widthParse = parseInt(calc);
+
+  outString = "";
+
+  for (i = 0; i < len; i += 4) {
+
+    if (i == widthParse * 4 * vertCount) {
+      vertCount++;
+      outString += '\n';
+    }
+
+    convert = RGBToHex(imageData.data[i + 0],
+      imageData.data[i + 1],
+      imageData.data[i + 2],
+      imageData.data[i + 3]);
+      
+    converted = parseInt(convert, 16);
+    
+    if (converted <= 0x101010) {
+      outString += scale[9];
+    }
+    if (converted > 0x101010 && converted <= 0x282828) {
+      outString += scale[8];
+    }
+    if (converted > 0x282828 && converted <= 0x404040) {
+      outString += scale[7];
+    }
+    if (converted > 0x404040 && converted <= 0x585858) {
+      outString += scale[6];
+    }
+    if (converted > 0x585858 && converted <= 0x707070) {
+      outString += scale[5];
+    }
+    if (converted > 0x707070 && converted <= 0x888888) {
+      outString += scale[4];
+    }
+    if (converted > 0x888888 && converted <= 0xA0A0A0) {
+      outString += scale[3];
+    }
+    if (converted > 0xA0A0A0 && converted <= 0xB8B8B8) {
+      outString += scale[2];
+    }
+    if (converted > 0xB8B8B8 && converted <= 0xD0D0D0) {
+      outString += scale[1];
+    }
+    if (converted > 0xD0D0D0 && converted <= 0xFFFFFF) {
+      outString += scale[0];
+    }
+  }
+
+  p.textContent = outString;
+}
+
+function RGBToHex(r, g, b, a) {
+  r = r.toString(16);
+  g = g.toString(16);
+  b = b.toString(16);
+  //a = Math.round(a * 255).toString(16);
+  a = Math.round(a * 255)
+
+  if (r.length == 1)
+    r = "0" + r;
+  if (g.length == 1)
+    g = "0" + g;
+  if (b.length == 1)
+    b = "0" + b;
+
+  // if( r == 0 && g == 0 && b == 0 && a > 0){
+  //   return "0xFFFFFF";
+  // }
+
+  // if(r == 0 && g == 0 && b == 0 && a>0){
+  //   r = a;
+  //   g = a;
+  //   b = a;
+  // }
+
+  return "0x" + r + g + b;
+}
+
+function toGray(img) {
+
+  var imgData;
+
+  document.getElementById("contrast").value = 0;
+
+  ctx.rect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  ctx.fill();
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    0, 0, img.width * scaleWidth, img.height * scaleHeight);
+
+  imgData = ctx.getImageData(0, 0, img.width, img.height);
+
+  for (var y = 0; y < imgData.height; y++) {
+
+    for (var x = 0; x < imgData.width; x++) {
+
+      let i = (y * 4) * imgData.width + x * 4;
+      var avg = (imgData.data[i] +
+        imgData.data[i + 1] +
+        imgData.data[i + 2]) / 3;
+
+      imgData.data[i] = avg;
+      imgData.data[i + 1] = avg;
+      imgData.data[i + 2] = avg;
+    }
+  }
+
+  ctx.putImageData(imgData, 0, 0, 0, 0,
+    imgData.width, imgData.height);
+
+}
+
+function contrastImage(img, contrast) { //input range [-100..100]
+  var imgData = ctx.getImageData(0, 0, img.width, img.height);
+  var d = imgData.data;
+  contrast = (contrast / 100) + 1; //convert to decimal & shift range: [0..2]
+  var intercept = 128 * (1 - contrast);
+  for (var i = 0; i < d.length; i += 4) { //r,g,b,a
+  
+    d[i] = d[i] * contrast + intercept;
+    d[i + 1] = d[i + 1] * contrast + intercept;
+    d[i + 2] = d[i + 2] * contrast + intercept;
+  }
+  
+  ctx.putImageData(imgData, 0, 0, 0, 0,
+    imgData.width, imgData.height);
+}
+
+function changeContrast() {
+  var conVal = document.getElementById("contrast").value;
+  ctx.rect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  ctx.fill();
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    0, 0, img.width * scaleWidth, img.height * scaleHeight);
+  contrastImage(img, conVal);
+  textOut(img);
+}
+
+function grayIt() {
+
+  if (gray == 0) {
+
+    toGray(img);
+    gray = 1;
+    textOut(img);
+    return;
+  } else {
+
+    document.getElementById("contrast").value = 0;
+    ctx.rect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.drawImage(img, 0, 0, img.width, img.height,
+      0, 0, img.width * scaleWidth, img.height * scaleHeight);
+    textOut(img);
+    gray = 0;
+    return;
+  }
+}
+
+function resetImage() {
+
+  ctx.rect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  ctx.fill();
+  ctx.drawImage(img, 0, 0, img.width, img.height,
+    0, 0, img.width * scaleWidth, img.height * scaleHeight);
+  textOut(img);
+
+  gray = 0;
+  document.getElementById("contrast").value = 0;
+}
+
+
+function copyOut() {
+  var copyText = document.getElementById("asciiOut").innerText;
+  var textArea = document.getElementById("hiddenText");
+  textArea.textContent = copyText;
+  document.body.append(textArea);
+  textArea.select();
+  document.execCommand("copy");
+  alert("Copied the output to clipboard!");
+}
+
+function handleImage(e) {
+
+  var reader = new FileReader();
+
+  reader.onload = function(event) {
+
+
+    img = new Image();
+
+    img.onload = function() {
+
+      // canvas.width = img.width;
+      // canvas.height = img.height;
+
+      canvas.width = img.width * scaleWidth;
+      canvas.height = img.height * scaleHeight;
+
+      displayCanvas.width = img.width;
+      displayCanvas.height = img.height;
+
+      ctx.rect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      ctx.fill();
+
+      ctx.drawImage(img, 0, 0, img.width, img.height,
+        0, 0, img.width * scaleWidth, img.height * scaleHeight);
+      disCtx.drawImage(img, 0, 0);
+
+      contrastImage(img, 0);
+
+      textOut(img);
+    }
+
+    img.src = event.target.result;
+    img.style.display="none";
+  }
+
+  reader.readAsDataURL(e.target.files[0]);
+}
+
+  </script>
+<style>
+body {
+  background-color: #121212;
+  color: #bb86fc;
+  text-align: center;
+  display: block;
+}
+
+pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 50px;
+  display: inline-block;
+
+}
+
+.imageLoad {
+  display: none;
+}
+
+canvas {
+  display: inline-block;
+}
+
+.view {
+  background-color: black;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 1px;
+  display: inline-block;
+  padding: 5px;
+
+}
+
+::selection {
+  color: black;
+  background: #bb86fc;
+}
+
+h1 {
+  font-size: 35px;
+  line-height: 0px;
+  font-weight: 550;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding-bottom: 10px;
+}
+
+.fileContainer {
+  color: #121212;
+  overflow: hidden;
+  position: relative;
+  background: #bb86fc;
+  border: none;
+  padding: 15px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.fileContainer:hover {
+  background-color: #cea6ff;
+}
+#copy{
+  height: 70px;
+}
+.fileContainer [type=file] {
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: none;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+textarea {
+  position: absolute;
+  left: -100%;
+}
+
+button {
+  background-color: #bb86fc;
+  width: 8em;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: #121212;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: #cea6ff;
+}
+
+/* webkit scrollbar shit down here :) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #292929;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #bb86fc;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #bb86fc;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #dadada;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #bb86fc;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #bb86fc;
+  cursor: pointer;
+}
+
+
+.slider::-webkit-slider-thumb:hover {
+  background: #cea6ff;
+}
+#asciiOut{
+  overflow: auto;
+  font-size: 4px;
+}
+</style>
+<script>
+  function Save() {
+    var textToWrite ='<pre style="width:' + img.width + ';' + 'height:' + img.height + ';' + 'font-size:0.1px;">' + document.getElementById("asciiOut").innerText + '</pre>';
+    var textFileAsBlob = new Blob([textToWrite], {
+        type: "text/html",
+    });
+    var fileNameToSaveAs = Math.floor(Math.random() * 111111111111111);
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL && window.webkitURL.createObjectURL) {
+        // Chrome allows the link to be clicked
+        // without actually adding it to the DOM.
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+        // Firefox requires the link to be added to the DOM
+        // before it can be clicked.
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+    }
+    downloadLink.click();
+}
+
+function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+}
+</script>
+</body>
+</html>
