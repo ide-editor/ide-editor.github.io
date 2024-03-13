@@ -808,76 +808,7 @@ function StartUsing() {
   
   document.getElementById("Boot-loader").style.opacity="0";
   document.getElementById("Boot-loader").style.visibility="hidden";
-setTimeout(function(){
-
-  if(!getSearchParam("theme")){
-document.getElementById("Theme").value="IDE";
-selectTheme();
-  }else{
-document.getElementById("Theme").value= getSearchParam("theme");
-selectTheme();
-  }
-  selectTheme();
-},120);
 }
-  // Load URL Data
-  function getSearchParam(searchParam){
-    var url = new URL(window.location.href);
-   return url.searchParams.get(searchParam);
-  }
-setTimeout(function(){
-  if(getSearchParam("lineNumbers")=="true"){
-    editor.setOption("lineNumbers",true);
-  }else{
-    editor.setOption("lineNumbers",false);
-  }
-  if(!getSearchParam("lineNumbers")){
-    editor.setOption("lineNumbers",true);
-  }
-  editor.setOption("mode",getSearchParam("mode"));
-  if(!getSearchParam("mode")){
-    editor.setOption("mode","text/html");
-  }
-  if(getSearchParam("matchBrackets")=="true"){
-    editor.setOption("matchBrackets",true);
-  }else{
-    editor.setOption("matchBrackets",false);
-  }
-  if(getSearchParam("readOnly")=="true"){
-    editor.setOption("readOnly","nocursor");
-    document.getElementById("readOnly").value="nocursor";
-      document.getElementsByClassName("cm-s-"+document.getElementById("Theme").value)[0].onclick=function(){
-      
-    };
-    }else{
-    editor.setOption("readOnly","");
-    document.getElementById("readOnly").value="";
-    document.getElementsByClassName("cm-s-"+document.getElementById("Theme").value)[0].onclick=function(){
-      editorOnclick();
-    };
-  }
-},1);
-setTimeout(function(){
-
-  if(!getSearchParam("theme")){
-document.getElementById("Theme").value="IDE";
-selectTheme();
-  }else{
-document.getElementById("Theme").value= getSearchParam("theme");
-selectTheme();
-  }
-  selectTheme();
-},120);
-  setInterval(function(){
-    localStorage.setItem("editor_SourceCode",editor.getValue());
-  });
-setTimeout(function(){
-  if(!getSearchParam("SourceCode")){
-    editor.setValue(decodeURI(atob("JTNDIWRvY3R5cGUlMjBodG1sJTNFJTBBJTIwJTIwJTNDaHRtbCUzRSUwQSUyMCUyMCUyMCUyMCUzQ2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0N0aXRsZSUzRVBhZ2UlMjB0aXRsZSUzQy90aXRsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ21ldGElMjBuYW1lPSUyMnZpZXdwb3J0JTIyJTIwY29udGVudD0lMjJ3aWR0aD1kZXZpY2Utd2lkdGgsJTIwaW5pdGlhbC1zY2FsZT0xLjAlMjIlMjBjaGFyc2V0PSUyMlVURi04JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDc3R5bGUlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAvKiUyMENTUyUyMHN0eWxlc2hlZXQlMjAqLyUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQy9zdHlsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ3NjcmlwdCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMC8vJTIwSlMlMjBzY3JpcHQlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0Mvc2NyaXB0JTNFJTBBJTIwJTIwJTIwJTIwJTNDL2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlM0Nib2R5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDIS0tJTIwc29tZSUyMGNvZGVzJTIwZm9yJTIwdGhlJTIwYm9keSUyMC0tJTNFJTBBJTIwJTIwJTIwJTIwJTNDL2JvZHklM0UlMEElMjAlMjAlM0MvaHRtbCUzRQ==")));
-  }else{
-    editor.setValue(decodeURI(atob(getSearchParam("SourceCode"))));
-  }
-},220);
   function ResizeIDE(){
     
     var Dected_Width = window.innerWidth || window.outerWidth;
@@ -1086,16 +1017,6 @@ function fontSize(value){
             };
             reader.readAsText(files[0]);
          }
-  }
-  function selectTheme() {
-    var theme = document.getElementById("Theme").value;
-    editor.setOption("theme", theme);
-    neweditor.setOption("theme", theme);
-    document.getElementsByClassName("cm-s-"+theme)[0].onclick=function(){
-    editor.execCommand("autocomplete");
-    editorOnclick();
-    document.getElementsByClassName("CodeMirrorAuditor")[0].style.marginTop="885.3%";
-    };
   }
 function Save() {
     var textToWrite = editor.getValue();
@@ -1528,19 +1449,3 @@ function find(){
   }
 // to left 110px
 // to right 210px
-var input = document.getElementById("Theme");
-  function selectTheme() {
-    var theme = input.options[input.selectedIndex].textContent;
-    editor.setOption("theme", theme);
-    neweditor.setOption("theme", theme);
-    document.getElementById('find').style.display='block';
-	document.getElementById('find').style.marginTop='-30px';
-	document.getElementById('id01').style.marginLeft='-600px';
-	document.getElementById('grun').style.display='block';
-	document.getElementsByClassName("cm-s-"+theme)[0].onclick=function(){
-	  editor.execCommand("autocomplete");
-	  editorOnclick();
-	  document.getElementsByClassName("CodeMirrorAuditor")[0].style.marginTop="885.3%";
-	};
-  }
-  setTimeout(selectTheme,1);
