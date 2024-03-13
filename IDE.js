@@ -1,6 +1,6 @@
 var myVar555 = "Q"+"n"+"k"+"g"+"W"+"m"+"V"+"6"+"b"+"0"+"A"+"y"+"M"+"D"+"I"+"y";
-  setTimeout(function(){
-    var FireWidth = window.innerWidth||window.outerWidth;
+setTimeout(function(){
+var FireWidth = window.innerWidth||window.outerWidth;
 var FireHeight = window.innerHeight||window.outerHeight;
 var GWidth = window.innerWidth||window.outerWidth - 100;
 var GGWidth = window.innerHeight||window.outerHeight;
@@ -54,8 +54,8 @@ document.getElementsByClassName("add_note_btn_loader")[0].style.width= window.in
 document.getElementById("Base64-topnav").style.width= GWidth + "px";
 document.getElementsByClassName("fcloseb64")[0].style.marginLeft= GWidth - 108 + "px";
 document.getElementById("Preview").type= editor.getOption("mode");
- document.getElementsByClassName("IDE_PREVIEW_IFRAME")[0].style.height= document.getElementsByClassName("CodeMirror")[0].style.height + "px";
- document.getElementsByClassName("mclassm92")[0].style.marginLeft= mclassm92Width-40+"px";
+document.getElementsByClassName("IDE_PREVIEW_IFRAME")[0].style.height= document.getElementsByClassName("CodeMirror")[0].style.height + "px";
+document.getElementsByClassName("mclassm92")[0].style.marginLeft= mclassm92Width-40+"px";
 document.getElementById("loadfiletopnav").style.width= KWidth2+"px";
 document.getElementsByClassName('CloseFFd')[0].style.marginLeft= FireWidth - 40+"px";
 document.getElementById("file-url").style.width= FireWidth - 100 + 'px';
@@ -216,8 +216,8 @@ function loadsource(src) {
   }
   function addNote() {
   	
-  	document.getElementById("text-editor").value= editor.getValue();
-  	Note();
+    document.getElementById("text-editor").value= editor.getValue();
+    Note();
     CodeMirror.colorize();
     alert("Saving to notepad successfully !!");
   }
@@ -1087,22 +1087,16 @@ function fontSize(value){
             reader.readAsText(files[0]);
          }
   }
-  var input = document.getElementById("Theme");
   function selectTheme() {
-    var theme = input.options[input.selectedIndex].textContent;
+    var theme = document.getElementById("Theme").value;
     editor.setOption("theme", theme);
     neweditor.setOption("theme", theme);
-    document.getElementById('find').style.display='block';
-	document.getElementById('find').style.marginTop='-30px';
-	document.getElementById('id01').style.marginLeft='-600px';
-	document.getElementById('grun').style.display='block';
-	document.getElementsByClassName("cm-s-"+theme)[0].onclick=function(){
-	  editor.execCommand("autocomplete");
-	  editorOnclick();
-	  document.getElementsByClassName("CodeMirrorAuditor")[0].style.marginTop="885.3%";
-	};
+    document.getElementsByClassName("cm-s-"+theme)[0].onclick=function(){
+    editor.execCommand("autocomplete");
+    editorOnclick();
+    document.getElementsByClassName("CodeMirrorAuditor")[0].style.marginTop="885.3%";
+    };
   }
-  setTimeout(selectTheme,1);
 function Save() {
     var textToWrite = editor.getValue();
     var textFileAsBlob = new Blob([textToWrite], {
