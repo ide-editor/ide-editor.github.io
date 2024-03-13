@@ -1534,3 +1534,19 @@ function find(){
   }
 // to left 110px
 // to right 210px
+var input = document.getElementById("Theme");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    neweditor.setOption("theme", theme);
+    document.getElementById('find').style.display='block';
+	document.getElementById('find').style.marginTop='-30px';
+	document.getElementById('id01').style.marginLeft='-600px';
+	document.getElementById('grun').style.display='block';
+	document.getElementsByClassName("cm-s-"+theme)[0].onclick=function(){
+	  editor.execCommand("autocomplete");
+	  editorOnclick();
+	  document.getElementsByClassName("CodeMirrorAuditor")[0].style.marginTop="885.3%";
+	};
+  }
+  setTimeout(selectTheme,1);
