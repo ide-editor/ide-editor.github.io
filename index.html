@@ -144,6 +144,16 @@ setTimeout(function(){
     };
   }
 },1);
+  setInterval(function(){
+    localStorage.setItem("editor_SourceCode",editor.getValue());
+  });
+setTimeout(function(){
+  if(!getSearchParam("SourceCode")){
+    editor.setValue(decodeURI(atob("JTNDIWRvY3R5cGUlMjBodG1sJTNFJTBBJTIwJTIwJTNDaHRtbCUzRSUwQSUyMCUyMCUyMCUyMCUzQ2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0N0aXRsZSUzRVBhZ2UlMjB0aXRsZSUzQy90aXRsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ21ldGElMjBuYW1lPSUyMnZpZXdwb3J0JTIyJTIwY29udGVudD0lMjJ3aWR0aD1kZXZpY2Utd2lkdGgsJTIwaW5pdGlhbC1zY2FsZT0xLjAlMjIlMjBjaGFyc2V0PSUyMlVURi04JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDc3R5bGUlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAvKiUyMENTUyUyMHN0eWxlc2hlZXQlMjAqLyUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQy9zdHlsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ3NjcmlwdCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMC8vJTIwSlMlMjBzY3JpcHQlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0Mvc2NyaXB0JTNFJTBBJTIwJTIwJTIwJTIwJTNDL2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlM0Nib2R5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDIS0tJTIwc29tZSUyMGNvZGVzJTIwZm9yJTIwdGhlJTIwYm9keSUyMC0tJTNFJTBBJTIwJTIwJTIwJTIwJTNDL2JvZHklM0UlMEElMjAlMjAlM0MvaHRtbCUzRQ==")));
+  }else{
+    editor.setValue(decodeURI(atob(getSearchParam("SourceCode"))));
+  }
+},220);
 setTimeout(function(){
 
   if(!getSearchParam("theme")){
@@ -155,16 +165,9 @@ selectTheme();
   }
   selectTheme();
 },120);
-  setInterval(function(){
-    localStorage.setItem("editor_SourceCode",editor.getValue());
-  });
-setTimeout(function(){
-  if(!getSearchParam("SourceCode")){
-    editor.setValue(decodeURI(atob("JTNDIWRvY3R5cGUlMjBodG1sJTNFJTBBJTIwJTIwJTNDaHRtbCUzRSUwQSUyMCUyMCUyMCUyMCUzQ2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0N0aXRsZSUzRVBhZ2UlMjB0aXRsZSUzQy90aXRsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ21ldGElMjBuYW1lPSUyMnZpZXdwb3J0JTIyJTIwY29udGVudD0lMjJ3aWR0aD1kZXZpY2Utd2lkdGgsJTIwaW5pdGlhbC1zY2FsZT0xLjAlMjIlMjBjaGFyc2V0PSUyMlVURi04JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDc3R5bGUlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAvKiUyMENTUyUyMHN0eWxlc2hlZXQlMjAqLyUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQy9zdHlsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ3NjcmlwdCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMC8vJTIwSlMlMjBzY3JpcHQlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0Mvc2NyaXB0JTNFJTBBJTIwJTIwJTIwJTIwJTNDL2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlM0Nib2R5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDIS0tJTIwc29tZSUyMGNvZGVzJTIwZm9yJTIwdGhlJTIwYm9keSUyMC0tJTNFJTBBJTIwJTIwJTIwJTIwJTNDL2JvZHklM0UlMEElMjAlMjAlM0MvaHRtbCUzRQ==")));
-  }else{
-    editor.setValue(decodeURI(atob(getSearchParam("SourceCode"))));
-  }
-},220);
+setTimeout(function() {
+  selectTheme();
+}, 10);
 </script>
 <script>
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
