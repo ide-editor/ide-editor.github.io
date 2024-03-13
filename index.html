@@ -108,6 +108,65 @@
 <style id="themetxt"></style>
 <script src="IDE.js"></script>
 <script>
+  function getSearchParam(searchParam){
+    var url = new URL(window.location.href);
+   return url.searchParams.get(searchParam);
+  }
+setTimeout(function(){
+  if(getSearchParam("lineNumbers")=="true"){
+    editor.setOption("lineNumbers",true);
+  }else{
+    editor.setOption("lineNumbers",false);
+  }
+  if(!getSearchParam("lineNumbers")){
+    editor.setOption("lineNumbers",true);
+  }
+  editor.setOption("mode",getSearchParam("mode"));
+  if(!getSearchParam("mode")){
+    editor.setOption("mode","text/html");
+  }
+  if(getSearchParam("matchBrackets")=="true"){
+    editor.setOption("matchBrackets",true);
+  }else{
+    editor.setOption("matchBrackets",false);
+  }
+  if(getSearchParam("readOnly")=="true"){
+    editor.setOption("readOnly","nocursor");
+    document.getElementById("readOnly").value="nocursor";
+      document.getElementsByClassName("cm-s-"+document.getElementById("Theme").value)[0].onclick=function(){
+      
+    };
+    }else{
+    editor.setOption("readOnly","");
+    document.getElementById("readOnly").value="";
+    document.getElementsByClassName("cm-s-"+document.getElementById("Theme").value)[0].onclick=function(){
+      editorOnclick();
+    };
+  }
+},1);
+setTimeout(function(){
+
+  if(!getSearchParam("theme")){
+document.getElementById("Theme").value="IDE";
+selectTheme();
+  }else{
+document.getElementById("Theme").value= getSearchParam("theme");
+selectTheme();
+  }
+  selectTheme();
+},120);
+  setInterval(function(){
+    localStorage.setItem("editor_SourceCode",editor.getValue());
+  });
+setTimeout(function(){
+  if(!getSearchParam("SourceCode")){
+    editor.setValue(decodeURI(atob("JTNDIWRvY3R5cGUlMjBodG1sJTNFJTBBJTIwJTIwJTNDaHRtbCUzRSUwQSUyMCUyMCUyMCUyMCUzQ2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0N0aXRsZSUzRVBhZ2UlMjB0aXRsZSUzQy90aXRsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ21ldGElMjBuYW1lPSUyMnZpZXdwb3J0JTIyJTIwY29udGVudD0lMjJ3aWR0aD1kZXZpY2Utd2lkdGgsJTIwaW5pdGlhbC1zY2FsZT0xLjAlMjIlMjBjaGFyc2V0PSUyMlVURi04JTIyJTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDc3R5bGUlM0UlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAvKiUyMENTUyUyMHN0eWxlc2hlZXQlMjAqLyUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQy9zdHlsZSUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUzQ3NjcmlwdCUzRSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMC8vJTIwSlMlMjBzY3JpcHQlMEElMjAlMjAlMjAlMjAlMjAlMjAlM0Mvc2NyaXB0JTNFJTBBJTIwJTIwJTIwJTIwJTNDL2hlYWQlM0UlMEElMjAlMjAlMjAlMjAlM0Nib2R5JTNFJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTNDIS0tJTIwc29tZSUyMGNvZGVzJTIwZm9yJTIwdGhlJTIwYm9keSUyMC0tJTNFJTBBJTIwJTIwJTIwJTIwJTNDL2JvZHklM0UlMEElMjAlMjAlM0MvaHRtbCUzRQ==")));
+  }else{
+    editor.setValue(decodeURI(atob(getSearchParam("SourceCode"))));
+  }
+},220);
+</script>
+<script>
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/5/LICENSE
 
