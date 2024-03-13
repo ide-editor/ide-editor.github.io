@@ -154,31 +154,16 @@ setTimeout(function(){
     editor.setValue(decodeURI(atob(getSearchParam("SourceCode"))));
   }
 },220);
-setTimeout(function(){
-
-  if(!getSearchParam("theme")){
-document.getElementById("Theme").value="IDE";
-selectTheme();
-  }else{
-document.getElementById("Theme").value= getSearchParam("theme");
-selectTheme();
-  }
-  selectTheme();
-},120);
-setTimeout(function() {
-  selectTheme();
-}, 10);
 </script>
 <script>
-setTimeout(function(){
-
-  if(!getSearchParam("theme")){
+(function(){
+if(!getSearchParam("theme")){
 document.getElementById("Theme").value="IDE";
-  }else{
+}else{
 document.getElementById("Theme").value= getSearchParam("theme");
-  }
-  selectTheme();
-},12);
+}
+selectTheme();
+})();
 </script>
 <script>
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
