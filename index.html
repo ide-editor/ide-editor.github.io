@@ -159,8 +159,10 @@ setTimeout(function(){
 (function(){
 if(!getSearchParam("theme")){
 document.getElementById("Theme").value="IDE";
+editor.setOption("theme","IDE");
 }else{
 document.getElementById("Theme").value= getSearchParam("theme");
+editor.setOption("theme",getSearchParam("theme"));
 }
 selectTheme();
 })();
