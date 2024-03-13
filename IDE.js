@@ -808,6 +808,17 @@ function StartUsing() {
   
   document.getElementById("Boot-loader").style.opacity="0";
   document.getElementById("Boot-loader").style.visibility="hidden";
+setTimeout(function(){
+
+  if(!getSearchParam("theme")){
+document.getElementById("Theme").value="IDE";
+selectTheme();
+  }else{
+document.getElementById("Theme").value= getSearchParam("theme");
+selectTheme();
+  }
+  selectTheme();
+},120);
 }
   // Load URL Data
   function getSearchParam(searchParam){
