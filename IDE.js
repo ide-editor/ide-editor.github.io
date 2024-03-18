@@ -192,7 +192,7 @@ function loadsource(src) {
     var Selected_widtdh = Selected_width - 60;
     var Selected_widtdX = Selected_width - 300;
     var Selected_widthX = Selected_width - 140;
-    document.getElementById("notes").innerHTML+='<br><pre theme="'+editor.getOption("theme")+'" id="note" style="margin-top:-55px;margin-right:-20px;width:'+Selected_widtXh+'px;" data-lang="' + editor.getOption("mode") + '">' + document.getElementById("text-editor").value.replaceAll("<","&lt;") + '\n\n\n</pre><img style="margin-top:-54px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-54px;margin-bottom:45px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</p><p><img src="icons/Copy_white.png" onclick="CopyNoteText(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:22px;height:22px;margin-top:-68px;margin-left:'+Selected_widtdh+'px;"></p><p style="margin-top:-9px;margin-left:90px;"><img src="icons/open-with.png" onclick="ReadNote(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:60px;height:110px;margin-top:-119px;margin-left:'+Selected_widthX+'px;"></p></div>';
+    document.getElementById("notes").innerHTML+='<br><pre theme="'+editor.getOption("theme")+'" id="note" style="margin-top:-55px;margin-right:-20px;width:'+Selected_widtXh+'px;" data-lang="' + editor.getOption("mode") + '">' + document.getElementById("text-editor").value.replaceAll("<","&lt;") + '\n\n\n</pre><img al="img" style="margin-top:-54px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-54px;margin-bottom:45px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</p><p><img al="img" src="icons/Copy_white.png" onclick="CopyNoteText(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:22px;height:22px;margin-top:-68px;margin-left:'+Selected_widtdh+'px;"></p><p style="margin-top:-9px;margin-left:90px;"><img al="img" src="icons/open-with.png" onclick="ReadNote(this)" data-codes="'+btoa(encodeURI(document.getElementById("text-editor").value))+'" class="copy_note_button" style="width:60px;height:110px;margin-top:-119px;margin-left:'+Selected_widthX+'px;"></p></div>';
   	CodeMirror.colorize();
   	document.getElementById("text-editor").value="";
   	var nodes = document.querySelectorAll("#note");
@@ -293,7 +293,7 @@ function ClickX34() {
 }
 function RunBtnOnclick() {
 	
- document.getElementById('Runtxt').innerHTML='<img onclick="' + document.getElementById('RunMode').value + '"' + 'src="icons/gRun.png" id="grun">';
+ document.getElementById('Runtxt').innerHTML='<img al="img" onclick="' + document.getElementById('RunMode').value + '"' + 'src="icons/gRun.png" id="grun">';
  document.getElementById('grun').style.display='block';
  document.getElementById('find').style.marginTop="-30px";
  document.getElementById('Runtxt').style.marginTop="-55px";
@@ -987,7 +987,7 @@ document.getElementById("Command").value="";
   }
   document.getElementById("preview").contentWindow.console.log = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader">' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader">' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img al="img" style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
   document.getElementById("preview").contentWindow.console.clear = function (Clear){
     
@@ -996,11 +996,11 @@ document.getElementById("Command").value="";
   };
   document.getElementById("preview").contentWindow.console.error = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img al="img" style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
   document.getElementById("preview").contentWindow.console.warn = function (message){
     
-    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
+    document.getElementById("ConsoleLog").innerHTML+= '<div><pre class="console_log_loader"><span style="font-size:15px;color:red;">⚠</span> ' + message.replaceAll("<","&lt;") +'<br>\n\n</pre><img al="img" style="margin-top:-46px;margin-left:10px;" src="icons/time_icon.png" width="25" height="25"><p style="color:rgb(80,80,80);margin-top:-46px;margin-bottom:4px;margin-left:40px;">' + new Date().getHours() + ':' + new Date().getMinutes() + '</pre></div>'+"<br>";
   };
 function fontSize(value){
     
