@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - HTML2IMG</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="html-content-holder" style="background-color: #F0F0F1; color: #00cc65; width: 500px;
+    padding-left: 25px; padding-top: 10px;">
+    <strong>Codepedia.info</strong>
+    <hr />
+    <h2 style="color: #3e4b51;">
+      Html to canvas, and canvas to proper image
+    </h2>
+    <p style="color: #3e4b51;">
+      <b>Codepedia.info</b> is a programming blog. Tutorials focused on Programming ASP.Net,
+      C#, jQuery, AngularJs, Gridview, MVC, Ajax, Javascript, XML, MS SQL-Server, NodeJs,
+      Web Design, Software
+    </p>
+    <p style="color: #3e4b51;">
+      <b>html2canvas</b> script allows you to take "screenshots" of webpages or parts
+      of it, directly on the users browser. The screenshot is based on the DOM and as
+      such may not be 100% accurate to the real representation as it does not make an
+      actual screenshot, but builds the screenshot based on the information available
+      on the page.
+    </p>
+  </div>
+  <input id="btnConvert" type="button" value="Download & Preview" />
+  <br />
+  <h3>Preview :</h3>
+  <div id="previewImg">
+  </div>
+</body>
+<script>
+  function dataURItoBlob(dataURI) {
+    // convert base64/URLEncoded data component to raw binary data held in a string
+    var byteString;
+    if (dataURI.split(',')[0].indexOf('base64') >= 0)
+      byteString = atob(dataURI.split(',')[1]);
+    else
+      byteString = unescape(dataURI.split(',')[1]);
+    // separate out the mime component
+    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    // write the bytes of the string to a typed array
+    var ia = new Uint8Array(byteString.length);
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ia], {
+      type: mimeString
+    });
+  }
+  $(window).on('load', () => {
+    $("#btnConvert").on('click', function() {
+      html2canvas(document.getElementById("html-content-holder"), {
+        allowTaint: true,
+        useCORS: true
+      }).then(function(canvas) {
+        var anchorTag = document.createElement("a");
+        document.body.appendChild(anchorTag);
+        document.getElementById("previewImg").appendChild(canvas);
+        var imageURI = canvas.toDataURL();
+        var imageBlob = dataURItoBlob(imageURI);
+        saveAs(imageBlob, 'result.png');
+        // anchorTag.download = "filename.jpg";
+        // anchorTag.href = canvas.toDataURL();
+        // anchorTag.target = '_blank';
+        // anchorTag.click();
+      });
+    });
+  })
+</script>
+
+</html>
+<!-- partial -->
+  
+</body>
+</html>
